@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="hero-section py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="~/images/hero.png" alt="Fashion Model" class="hero-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="stats d-flex justify-content-between mb-4">
+                        <div>
+                            <h3 class="fw-bold">200+</h3>
+                            <p class="text-muted">International Brands</p>
+                        </div>
+                        <div>
+                            <h3 class="fw-bold">2,000+</h3>
+                            <p class="text-muted">High-Quality Products</p>
+                        </div>
+                        <div>
+                            <h3 class="fw-bold">30,000+</h3>
+                            <p class="text-muted">Happy Customers</p>
+                        </div>
+                    </div>
+                    <h1 class="hero-title">
+                        You can have anything<br>you want in life if<br>you dress for it.
+                    </h1>
+                    <p class="hero-description">
+                        Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and style.
+                    </p>
+                    <a asp-controller="Shop" asp-action="Index" class="btn btn-dark shop-now-btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Brand Logos -->
+<section class="py-1 bg-black">
+    <div class="container">
+        <div class="row text-center align-items-center justify-content-between">
+            <div class="col">
+                <img src="~/images/prada.png" alt="Prada" class="brand-logo">
+            </div>
+            <div class="col">
+                <img src="~/images/mufti.png" alt="Mufti" class="brand-logo">
+            </div>
+            <div class="col">
+                <img src="~/images/vanheusen.png" alt="Van Heusen" class="brand-logo">
+            </div>
+            <div class="col">
+                <img src="~/images/calvin.png" alt="Calvin Klein" class="brand-logo">
+            </div>
+            <div class="col">
+                <img src="~/images/gucci.png" alt="Gucci" class="brand-logo">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- New Arrivals -->
+<section class="py-5">
+    <div class="container">
+        <h1 class="text-center fw-bold display-5 mb-5 text-uppercase">New Arrivals</h1>
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="~/images/products/product1.jpg" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="card-text">Short description of the product.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat more product cards -->
+        </div>
+        <div class="mt-4 text-center">
+            <a href="/new-arrivals" class="btn btn-outline-dark">View All</a>
+        </div>
+    </div>
+</section>
+<!-- Top Selling -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold mb-5 text-capitalize">Top Selling</h2>
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="~/images/products/top-product.jpg" class="card-img-top" alt="Top Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Top Product</h5>
+                        <p class="card-text">Product description.</p>
+                    </div>
+                </div>
+            </div>
+            <section class="py-5">
+                <div class="container">
+                    <div class="bg-light p-5 rounded">
+                        <h2 class="fw-bold mb-4">Browse By Dress Style</h2>
+                        <div class="row g-4">
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <a href="/category/casual" class="text-decoration-none text-dark">
+                                    <div class="bg-white rounded shadow-sm p-3 text-center">
+                                        <img src="~/images/products/casual.jpg" alt="Casual" class="img-fluid mb-3">
+                                        <h5>Casual</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- Repeat for Formal, Party, Gym -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <h2 class="fw-bold mb-5">Our Happy Customers</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="bg-light p-4 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">S</div>
+                                    <div class="ms-3">
+                                        <h5>Sarah M.</h5>
+                                        <div class="text-warning">★★★★★</div>
+                                    </div>
+                                </div>
+                                <p>The experience has been great and all of the clothes I've received have been high quality. I've received numerous compliments!</p>
+                            </div>
+                        </div>
+                        <!-- Repeat for more testimonials -->
+                    </div>
+                </div>
+            </section>
