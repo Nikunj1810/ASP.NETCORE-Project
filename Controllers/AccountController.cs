@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASP.netcore_Project.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.netcore_Project.Controllers
 {
     public class AccountController : Controller
     {
-        // Loads the Login View
+        AccountModel AccountObj = new();
         public IActionResult Login()
         {
             return View();
@@ -15,11 +16,27 @@ namespace ASP.netcore_Project.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Register(AccountModel user)
+        {
+            bool res;
+            if (ModelState.IsValid)
+            {
+                AccountObj = new AccountModel();
+                res = AccountObj.Insert(user);
+                if (res)
+                {
+                    TempData["msg"] = "Added successfully";
+                }
+                else
+                {
+                    TempData["msg"] = "Not Added. something went wrong..!!";
+                }
+            }
+            return View();
+        }
 
         // Optional - Redirect to Login or Register as default
-        public IActionResult Index()
-        {
-            return RedirectToAction("Login");
-        }
+      
     }
 }

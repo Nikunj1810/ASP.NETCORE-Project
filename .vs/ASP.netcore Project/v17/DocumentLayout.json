@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\home\\contactus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\home\\contactus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\models\\accountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:models\\accountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +27,12 @@
       "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\home\\contactus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\home\\contactus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|solutionrelative:views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A54634B2-6E06-4E4D-B2A4-508FFCB5A374}|ASP.netcore Project.csproj|e:\\r.k university\\sem6\\asp.net\\asp.netcore project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -50,68 +50,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "User.cs",
-              "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T03:33:25.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AccountController.cs",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T03:16:59.363Z"
+              "WhenOpened": "2025-03-23T03:16:59.363Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "AccountModel.cs",
+              "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Models\\AccountModel.cs",
+              "RelativeDocumentMoniker": "Models\\AccountModel.cs",
+              "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Models\\AccountModel.cs",
+              "RelativeToolTip": "Models\\AccountModel.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T07:47:45.028Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ContactUs.cshtml",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Home\\ContactUs.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\ContactUs.cshtml",
               "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Home\\ContactUs.cshtml",
               "RelativeToolTip": "Views\\Home\\ContactUs.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAADwv00AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-23T01:36:53.217Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "AboutUs.cshtml",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Home\\AboutUs.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\AboutUs.cshtml",
               "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Home\\AboutUs.cshtml",
               "RelativeToolTip": "Views\\Home\\AboutUs.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-23T01:36:20.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Register.cshtml",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
               "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Account\\Register.cshtml",
               "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAADoAAAAAAAAAAADwv1QAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-23T01:35:39.611Z"
+              "WhenOpened": "2025-03-23T01:35:39.611Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -127,13 +129,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Login.cshtml",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
               "ToolTip": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACoAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-22T20:34:12.798Z"
             },
@@ -151,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "site.css",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
@@ -163,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
