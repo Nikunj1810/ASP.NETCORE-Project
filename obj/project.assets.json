@@ -6706,23 +6706,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Garac\\.nuget\\packages\\": {},
+    "C:\\Users\\Shivam\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\ASP.netcore Project.csproj",
+      "projectUniqueName": "C:\\Users\\Shivam\\Source\\Repos\\ASP.NETCORE-Project\\ASP.netcore Project.csproj",
       "projectName": "ASP.netcore Project",
-      "projectPath": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\ASP.netcore Project.csproj",
-      "packagesPath": "C:\\Users\\Garac\\.nuget\\packages\\",
-      "outputPath": "E:\\R.K University\\sem6\\ASP.NET\\ASP.netcore Project\\obj\\",
+      "projectPath": "C:\\Users\\Shivam\\Source\\Repos\\ASP.NETCORE-Project\\ASP.netcore Project.csproj",
+      "packagesPath": "C:\\Users\\Shivam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Shivam\\Source\\Repos\\ASP.NETCORE-Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Garac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Shivam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6749,7 +6749,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -6783,7 +6783,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

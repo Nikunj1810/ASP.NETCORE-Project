@@ -27,7 +27,7 @@ namespace ASP.netcore_Project.Models
         [Required]
         public string Password { get; set; } // Stored as plain text (Not Recommended)
 
-        private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+       private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
         // 🔹 Insert New User
         public bool Insert(AccountModel user)
@@ -50,64 +50,6 @@ namespace ASP.netcore_Project.Models
             {
                 Console.WriteLine("Error: " + ex.Message);
                 return false;
-            }
-        }
-
-        // 🔹 Validate User Login (Without Hashing)
-       
-        // 🔹 Update User Details
-        public bool UpdateUser(AccountModel account)
-        {
-            try
-            {
-                using SqlConnection con = new(connectionString);
-                con.Open();
-                using SqlCommand cmd = new("UPDATE Users SET FirstName = @FirstName, LastName = @LastName, PhoneNo = @PhoneNo, Address = @Address, Password = @Password WHERE Email = @Email", con);
-                cmd.Parameters.AddWithValue("@FirstName", account.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", account.LastName);
-                cmd.Parameters.AddWithValue("@PhoneNo", account.PhoneNo);
-                cmd.Parameters.AddWithValue("@Address", account.Address);
-                cmd.Parameters.AddWithValue("@Password", account.Password); // Updating password directly
-                cmd.Parameters.AddWithValue("@Email", account.Email);
-
-                return cmd.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                return false;
-            }
-        }
-
-        // 🔹 Get User by Email
-        public AccountModel GetUserByEmail(string email)
-        {
-            try
-            {
-                using SqlConnection con = new(connectionString);
-                con.Open();
-                using SqlCommand cmd = new("SELECT UserId, FirstName, LastName, PhoneNo, Address, Email FROM Users WHERE Email = @Email", con);
-                cmd.Parameters.AddWithValue("@Email", email);
-
-                using SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    return new AccountModel
-                    {
-                        UserId = Convert.ToInt32(reader["UserId"]),
-                        FirstName = reader["FirstName"].ToString(),
-                        LastName = reader["LastName"].ToString(),
-                        PhoneNo = reader["PhoneNo"].ToString(),
-                        Address = reader["Address"].ToString(),
-                        Email = reader["Email"].ToString()
-                    };
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                return null;
             }
         }
     }

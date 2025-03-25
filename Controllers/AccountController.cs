@@ -35,8 +35,32 @@ namespace ASP.netcore_Project.Controllers
             }
             return View();
         }
+        public IActionResult Adminlogin()
+        {
+            return View();
+        }
 
-        // Optional - Redirect to Login or Register as default
-      
+        [HttpPost]
+        public IActionResult AdminLogin(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Replace this with actual admin credentials check or DB check
+                if (model.Email == "admin@quickcart.com" && model.Password == "admin123")
+                {
+                    // You can use session or authentication
+                    HttpContext.Session.SetString("Admin", model.Email);
+                    return RedirectToAction("Dashboard", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid admin login");
+                }
+            }
+            return View("Adminlogin");
+        }
+
+
+
     }
 }

@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="card shadow-sm border-0 rounded-3 hover-shadow">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-3">
+                                    <i class="fas fa-shopping-cart text-primary fs-4"></i>
+                                </div>
+                                <button class="btn btn-light btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                            <h6 class="text-muted mb-2">Total Orders</h6>
+                            <h3 class="mb-1">₹126,500</h3>
+                            <small class="text-muted">Compared to Oct 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm border-0 rounded-3 hover-shadow">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-warning bg-opacity-10 p-3 rounded-3">
+                                    <i class="fas fa-clock text-warning fs-4"></i>
+                                </div>
+                                <button class="btn btn-light btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                            <h6 class="text-muted mb-2">Active Orders</h6>
+                            <h3 class="mb-1">₹126,500</h3>
+                            <small class="text-muted">Compared to Oct 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm border-0 rounded-3 hover-shadow">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                    <i class="fas fa-check-circle text-success fs-4"></i>
+                                </div>
+                                <button class="btn btn-light btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                            <h6 class="text-muted mb-2">Completed Orders</h6>
+                            <h3 class="mb-1">₹126,500</h3>
+                            <small class="text-muted">Compared to Oct 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm border-0 rounded-3 hover-shadow">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-danger bg-opacity-10 p-3 rounded-3">
+                                    <i class="fas fa-undo text-danger fs-4"></i>
+                                </div>
+                                <button class="btn btn-light btn-sm"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                            <h6 class="text-muted mb-2">Return Orders</h6>
+                            <h3 class="mb-1">₹126,500</h3>
+                            <small class="text-muted">Compared to Oct 2023</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header d-flex justify-content-between">
+                    <h5>Recent Orders</h5>
+                    <button class="btn btn-light btn-sm">...</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" /></th>
+                                <th>Product</th>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer Name</th>
+                                <th>Status</th>
+                                <th class="text-end">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>Cloth</td>
+                                <td>#25426</td>
+                                <td>Nov 8th,2023</td>
+                                <td>Kavin</td>
+                                <td><span class="badge bg-success">Delivered</span></td>
+                                <td class="text-end">₹200.00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>T-shirt</td>
+                                <td>#25425</td>
+                                <td>Nov 7th,2023</td>
+                                <td>Kamlesh</td>
+                                <td><span class="badge bg-warning text-dark">Canceled</span></td>
+                                <td class="text-end">₹200.00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>Paint</td>
+                                <td>#25424</td>
+                                <td>Nov 6th,2023</td>
+                                <td>Nikhil</td>
+                                <td><span class="badge bg-success">Delivered</span></td>
+                                <td class="text-end">₹200.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>

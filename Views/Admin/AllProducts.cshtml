@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "All Products";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-0">All Products</h2>
+            
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            <i class="fas fa-plus me-2"></i> ADD NEW PRODUCT
+        </button>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-12">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search products by name or category" />
+                <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="btn-group">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    All Products
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Checked Products (0)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Product Card 1 -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/shirt.jpg" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
+                    <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="card-title mb-1">Classic White T-Shirt</h5>
+                            <p class="text-muted small mb-0">Category: T-shirt</p>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" />
+                        </div>
+                    </div>
+                    <p class="card-text text-primary fw-bold mb-0">₹499.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/shirt.jpg" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
+                    <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="card-title mb-1">Slim Fit Jeans</h5>
+                            <p class="text-muted small mb-0">Category: Jeans</p>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" />
+                        </div>
+                    </div>
+                    <p class="card-text text-primary fw-bold mb-0">₹999.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/shirt.jpg" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
+                    <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="card-title mb-1">Casual Paint</h5>
+                            <p class="text-muted small mb-0">Category: Paint</p>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" />
+                        </div>
+                    </div>
+                    <p class="card-text text-primary fw-bold mb-0">₹799.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

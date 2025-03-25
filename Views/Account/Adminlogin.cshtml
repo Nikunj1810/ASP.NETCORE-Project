@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<style>
+    .login-container {
+        max-width: 400px;
+        margin: 60px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .store-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .login-title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        height: 48px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 16px;
+        transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+        border-color: #1a73e8;
+        box-shadow: none;
+    }
+
+    .form-check-input {
+        margin-top: 0.3rem;
+    }
+
+    .login-btn {
+        height: 48px;
+        background-color: #1a73e8;
+        border: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.2s;
+    }
+
+    .login-btn:hover {
+        background-color: #1557b0;
+    }
+
+    .forgot-password {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .forgot-password a {
+        color: #1a73e8;
+        text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <div class="store-title">QuickCart</div>
+    <div class="login-title">Admin Login</div>
+    <form method="post" asp-controller="Account" asp-action="AdminLogin">
+        <div class="mb-4">
+            <input type="email" class="form-control" name="Email" placeholder="Email" required />
+        </div>
+        <div class="mb-4">
+            <input type="password" class="form-control" name="Password" placeholder="Password" required />
+        </div>
+        <div class="form-check mb-4">
+            <input type="checkbox" class="form-check-input" id="rememberCheck" name="RememberMe" />
+            <label class="form-check-label" for="rememberCheck">Keep me logged in</label>
+        </div>
+        <a href="/Admin/Dashboard" class="btn btn-primary w-100 login-btn">Login</a>
+    </form>
+    <div class="forgot-password">
+        <a href="#">Forgot your password?</a>
+    </div>
+</div>
+
+
+
