@@ -1,0 +1,46 @@
+﻿@model ASP.netcore_Project.Models.ProfileModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4" style="max-width: 500px; margin: auto; border-radius: 15px;">
+        <div class="text-center mb-4">
+            <img src="~/images/user-placeholder.png" alt="User" class="rounded-circle" width="80">
+            <h3 class="mt-2 fw-bold">My Profile</h3>
+            <p class="text-muted">Welcome, @Model.FirstName!</p>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">First Name</label>
+            <input type="text" class="form-control" value="@Model.FirstName" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Email</label>
+            <input type="text" class="form-control" value="@Model.Email" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Last Name</label>
+            <input type="text" class="form-control" value="@Model.LastName" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Phone</label>
+            <input type="text" class="form-control" value="@Model.Phone" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Address</label>
+            <input type="text" class="form-control" value="@Model.Address" readonly>
+        </div>
+
+        <div class="text-center">
+            <a asp-action="Logout" asp-controller="Account" class="btn btn-dark w-100">
+                Logout <i class="bi bi-box-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>

@@ -18,10 +18,15 @@
 <body>
     <header>
         <!-- Promo Banner -->
-        <div class="promo-banner d-flex justify-content-center align-items-center">
-            <span class="promo-text">Our Spring Sale is live! Don't miss out on exclusive deals. <a asp-controller="Shop" asp-action="Index">Shop Now</a></span>
-            <button class="close-btn">&times;</button>
+        <div class="promo-banner">
+            <p class="promo-text">
+                Our Spring Sale is live! Don’t miss out on exclusive deals.
+                <a href="/shop" class="promo-link">Shop Now</a>
+            </p>
+            <button class="promo-close" onclick="closePromoBanner()" aria-label="Close promotion">&times;</button>
         </div>
+
+
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -58,8 +63,8 @@
                         </div>
                     </form>
 
-                    <!-- Icons -->
                     <div class="icons d-flex gap-4 align-items-center">
+                        <!-- Shopping Cart Icon -->
                         <a asp-controller="Cart" asp-action="Cart" class="position-relative">
                             <img src="~/images/cart.png" alt="Shopping Cart" class="cart-icon">
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -67,14 +72,24 @@
                             </span>
                         </a>
 
-                        <a asp-controller="Account" asp-action="Login" class="d-flex align-items-center gap-2">
-                            <img src="~/images/user.png" alt="User Account" class="user-icon">
-                            <span>Login</span>
-                        </a>
-
-
-
+                        @if (Context.Session.GetString("UserEmail") != null)
+                        {
+                            <!-- Show User Profile Icon when Logged In -->
+                            <a asp-controller="Profile" asp-action="Profile" class="user-profile">
+                                <img src="~/images/user.png" alt="User Profile" class="user-icon">
+                            </a>
+                        }
+                        else
+                        {
+                            <!-- Show Login Button when Not Logged In -->
+                            <a asp-controller="Account" asp-action="Login" class="login-btn">Login</a>
+                        }
                     </div>
+
+
+
+                
+
                 </div>
             </div>
         </nav>
@@ -177,5 +192,36 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="loginToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["LoginSuccess"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var toastElement = document.getElementById('loginToast');
+            if (toastElement && toastElement.innerText.trim() !== "") {
+                var toast = new bootstrap.Toast(toastElement);
+                toast.show();
+            }
+        });
+    </script>
+    <script>
+        function closePromoBanner() {
+            document.querySelector('.promo-banner').style.display = 'none';
+        }
+    </script>
+  
+
+
+
+
 </body>
 </html>

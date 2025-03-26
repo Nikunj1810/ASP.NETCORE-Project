@@ -561,7 +561,6 @@ E:\ASP.net core project\obj\Debug\net9.0\scopedcss\bundle\ASP.netcore Project.st
 E:\ASP.net core project\obj\Debug\net9.0\scopedcss\projectbundle\ASP.netcore Project.bundle.scp.css
 E:\ASP.net core project\obj\Debug\net9.0\compressed\0ogwibrdmt-zowgx389g7.gz
 E:\ASP.net core project\obj\Debug\net9.0\compressed\xprr9me2y6-ussq62del8.gz
-E:\ASP.net core project\obj\Debug\net9.0\compressed\f0dz5obuqw-xp1yd62d9d.gz
 E:\ASP.net core project\obj\Debug\net9.0\compressed\1tk86tt4ti-61n19gt1b8.gz
 E:\ASP.net core project\obj\Debug\net9.0\compressed\dlsk6guvl0-xtxxf3hu2r.gz
 E:\ASP.net core project\obj\Debug\net9.0\compressed\b4n3pkys6h-t1cqhe9u97.gz
@@ -641,3 +640,4 @@ E:\ASP.net core project\obj\Debug\net9.0\refint\ASP.netcore Project.dll
 E:\ASP.net core project\obj\Debug\net9.0\ASP.netcore Project.pdb
 E:\ASP.net core project\obj\Debug\net9.0\ASP.netcore Project.genruntimeconfig.cache
 E:\ASP.net core project\obj\Debug\net9.0\ref\ASP.netcore Project.dll
+E:\ASP.net core project\obj\Debug\net9.0\compressed\f0dz5obuqw-z8xoj169se.gz

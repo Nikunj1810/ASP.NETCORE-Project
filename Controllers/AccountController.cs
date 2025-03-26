@@ -6,24 +6,45 @@ namespace ASP.netcore_Project.Controllers
     public class AccountController : Controller
     {
         AccountModel AccountObj = new();
+
         public IActionResult Login()
         {
             return View();
         }
 
-        // Loads the Register View
+        [HttpPost]
+        public IActionResult Login(string Email, string Password)
+        {
+            AccountModel user = AccountObj.Login(Email, Password);
+
+            if (user != null)
+            {
+                // ✅ Store user details in Session
+                HttpContext.Session.SetString("UserEmail", user.Email);
+                HttpContext.Session.SetString("UserFirstName", user.FirstName);
+                HttpContext.Session.SetString("UserLastName", user.LastName);
+                HttpContext.Session.SetString("UserPhone", user.PhoneNo);
+                HttpContext.Session.SetString("UserAddress", user.Address);
+
+                TempData["LoginSuccess"] = "You have successfully logged in!";
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewBag.Error = "Invalid email or password";
+            return View();
+        }
+
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Register(AccountModel user)
         {
-            bool res;
             if (ModelState.IsValid)
             {
-                AccountObj = new AccountModel();
-                res = AccountObj.Insert(user);
+                bool res = AccountObj.Insert(user);
                 if (res)
                 {
                     TempData["msg"] = "Registration successful! Please login with your credentials.";
@@ -37,32 +58,11 @@ namespace ASP.netcore_Project.Controllers
             return View(user);
         }
 
-        public IActionResult Adminlogin()
+        public IActionResult Logout()
         {
-            return View();
+            HttpContext.Session.Clear(); // ✅ Clear Session on Logout
+            return RedirectToAction("Login");
         }
-
-        [HttpPost]
-        public IActionResult AdminLogin(LoginModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Replace this with actual admin credentials check or DB check
-                if (model.Email == "admin@quickcart.com" && model.Password == "admin123")
-                {
-                    // You can use session or authentication
-                    HttpContext.Session.SetString("Admin", model.Email);
-                    return RedirectToAction("Dashboard", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid admin login");
-                }
-            }
-            return View("Adminlogin");
-        }
-
-
-
+      
     }
 }

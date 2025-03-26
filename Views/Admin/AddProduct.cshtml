@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .upload-box {
+        border: 2px dashed #ddd;
+        border-radius: 10px;
+        text-align: center;
+        padding: 40px;
+        color: #6c757d;
+    }
+
+    .form-control, .form-select {
+        border-radius: 5px;
+    }
+
+    .btn-upload {
+        width: 100%;
+        margin-top: 10px;
+    }
+</style>
+<div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#" class="text-decoration-none text-secondary">Home</a> >
+        <a href="#" class="text-decoration-none text-secondary">All Products</a> >
+        <span class="fw-bold">Add New Product</span>
+    </div>
+
+    <!-- Page Title -->
+    <h3 class="fw-bold">Product Details</h3>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Product Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Manage Categories</a>
+        </li>
+    </ul>
+
+    <div class="card mt-3">
+        <div class="row">
+            <!-- Left Side - Product Details Form -->
+            <div class="col-md-8">
+                <form>
+                    <!-- Product Name -->
+                    <label class="mt-2">Product Name</label>
+                    <input type="text" class="form-control" placeholder="Type name here">
+
+                    <!-- Description -->
+                    <label class="mt-2">Description</label>
+                    <textarea class="form-control" rows="3" placeholder="Type description here"></textarea>
+
+                    <!-- Category Dropdown -->
+                    <label class="mt-2">Category</label>
+                    <select class="form-select">
+                        <option selected>Select a category</option>
+                        <option>Clothing</option>
+                        <option>Accessories</option>
+                        <option>Electronics</option>
+                    </select>
+
+                    <!-- Brand Name -->
+                    <label class="mt-2">Brand Name</label>
+                    <input type="text" class="form-control" placeholder="Type brand name here">
+
+                    <div class="row">
+                        <!-- SKU -->
+                        <div class="col-md-6">
+                            <label class="mt-2">SKU</label>
+                            <input type="text" class="form-control" placeholder="e.g. PROD-123">
+                        </div>
+                        <!-- Stock Quantity -->
+                        <div class="col-md-6">
+                            <label class="mt-2">Stock Quantity</label>
+                            <input type="number" class="form-control" value="0">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Price -->
+                        <div class="col-md-6">
+                            <label class="mt-2">Price</label>
+                            <input type="number" class="form-control" value="0">
+                        </div>
+                        <!-- Original Price -->
+                        <div class="col-md-6">
+                            <label class="mt-2">Original Price</label>
+                            <input type="number" class="form-control" value="0">
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <label class="mt-2">Tags (comma separated)</label>
+                    <input type="text" class="form-control" placeholder="tag1, tag2, tag3">
+                </form>
+            </div>
+
+            <!-- Right Side - Image Upload -->
+            <div class="col-md-4">
+                <label class="mt-2">Product Image</label>
+                <div class="upload-box">
+                    <span>📤</span>
+                    <p>Drop your image here, or browse</p>
+                    <small class="text-muted">JPEG, PNG are allowed</small>
+                    <input type="file" class="form-control mt-2">
+                </div>
+                <button class="btn btn-secondary btn-upload">Upload Image</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-light me-2">CANCEL</button>
+        <button class="btn btn-primary">SAVE PRODUCT</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

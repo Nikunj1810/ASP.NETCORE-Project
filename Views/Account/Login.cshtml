@@ -15,13 +15,8 @@
             <h1>Welcome Back!</h1>
             <p>Log in to your account to continue</p>
 
-            @if (TempData["msg"] != null)
-            {
-                <div class="alert alert-danger">@TempData["msg"]</div>
-            }
-            <form asp-controller="Account" asp-action="Login" method="post">
-                @Html.AntiForgeryToken()
-
+            <!-- Login Form -->
+            <form id="loginForm" asp-controller="Account" asp-action="Login" method="post" onsubmit="return showFullScreenLoader();">
                 <div class="form-group">
                     <label asp-for="Email"></label>
                     <input asp-for="Email" class="form-control" placeholder="Enter your email">
@@ -34,18 +29,29 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
-                <button type="submit" class="login-btn">EMAIL LOGIN</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </form>
 
             <div class="signup-section d-flex justify-content-center mt-3">
                 <a asp-controller="Account" asp-action="Register" class="signup-btn me-3">Sign Up</a>
-                <a asp-controller="Account" asp-action="AdminLogin" class="admin-btn">Admin Login</a>
+                <a asp-controller="Admin" asp-action="AdminLogin" class="admin-btn">Admin Login</a>
             </div>
-
         </div>
     </div>
 </section>
 
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}
+<!-- Full-Screen Loading Overlay -->
+<div id="loadingOverlay" style="display: none;">
+    <div class="spinner"></div>
+</div>
+<script>
+    function showFullScreenLoader() {
+        document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
+        setTimeout(function () {
+            document.getElementById("loadingOverlay").style.display = "none"; // Hide after 3 sec
+            document.getElementById("loginForm").submit(); // Submit form after delay
+        }, 3000);
+        return false; // Prevent immediate form submission
+    }
+</script>
+

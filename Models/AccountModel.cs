@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
 namespace ASP.netcore_Project.Models
@@ -27,9 +28,9 @@ namespace ASP.netcore_Project.Models
         [Required]
         public string Password { get; set; } // Stored as plain text (Not Recommended)
 
-       private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
-        // 🔹 Insert New User
+        // 🔹 Insert New User (Register)
         public bool Insert(AccountModel user)
         {
             try
@@ -42,7 +43,7 @@ namespace ASP.netcore_Project.Models
                 cmd.Parameters.AddWithValue("@PhoneNo", user.PhoneNo);
                 cmd.Parameters.AddWithValue("@Address", user.Address);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
-                cmd.Parameters.AddWithValue("@Password", user.Password); // Password stored as plain text
+                cmd.Parameters.AddWithValue("@Password", user.Password); // Plain text password
 
                 return cmd.ExecuteNonQuery() > 0;
             }
@@ -52,5 +53,40 @@ namespace ASP.netcore_Project.Models
                 return false;
             }
         }
+
+        // 🔹 Login Method
+        public AccountModel Login(string email, string password)
+        {
+            AccountModel user = null;
+            try
+            {
+                using SqlConnection con = new(connectionString);
+                con.Open();
+                using SqlCommand cmd = new("SELECT * FROM Users WHERE Email = @Email AND Password = @Password", con);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Password", password); // Plain text comparison
+
+                using SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    user = new AccountModel
+                    {
+                        UserId = Convert.ToInt32(reader["UserId"]),
+                        FirstName = reader["FirstName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        PhoneNo = reader["PhoneNo"].ToString(),
+                        Address = reader["Address"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        Password = reader["Password"].ToString() // Retrieve password (Avoid in real-world apps)
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Login Error: " + ex.Message);
+            }
+            return user; // Returns null if login fails
+        }
+        
     }
 }
