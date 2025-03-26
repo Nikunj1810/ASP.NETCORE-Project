@@ -1,0 +1,143 @@
+@model ASP.netcore_Project.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Product Detail";
+}
+
+<div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/Shop">Shop</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <!-- Product Images -->
+        <div class="col-md-6 mb-4">
+            <div class="main-image mb-3">
+                <img src="~/images/shirt.jpg" class="img-fluid rounded" alt="@Model.Name">
+            </div>
+            <div class="thumbnail-images d-flex gap-2">
+                <img src="~/images/shirt.jpg" class="img-thumbnail" style="width: 80px; cursor: pointer;" alt="Thumbnail 1">
+                <img src="~/images/shirt.jpg" class="img-thumbnail" style="width: 80px; cursor: pointer;" alt="Thumbnail 2">
+                <img src="~/images/shirt.jpg" class="img-thumbnail" style="width: 80px; cursor: pointer;" alt="Thumbnail 3">
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h1 class="mb-3">@Model.Name</h1>
+            <h2 class="text-primary mb-4">₹@Model.Price</h2>
+
+            <p class="mb-4">Classic striped shirt with mandarin collar. Made from lightweight cotton blend for everyday comfort.</p>
+
+            <!-- Color Selection -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-3">Select Color</h6>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-dark p-3 rounded-circle" style="background-color: green;"></button>
+                    <button class="btn btn-outline-dark p-3 rounded-circle" style="background-color: blue;"></button>
+                    <button class="btn btn-outline-dark p-3 rounded-circle" style="background-color: black;"></button>
+                </div>
+            </div>
+
+            <!-- Size Selection -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-3">Choose Size</h6>
+                <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check" name="size" id="small" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="small">S</label>
+
+                    <input type="radio" class="btn-check" name="size" id="medium" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="medium">M</label>
+
+                    <input type="radio" class="btn-check" name="size" id="large" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="large">L</label>
+
+                    <input type="radio" class="btn-check" name="size" id="xlarge" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="xlarge">XL</label>
+                </div>
+            </div>
+
+            <!-- Quantity Selector -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-3">Quantity</h6>
+                <div class="input-group" style="width: 130px;">
+                    <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
+                    <input type="text" class="form-control text-center" id="quantity" value="1" readonly>
+                    <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
+                </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button class="btn btn-primary btn-lg w-100 mb-4">Add to Cart</button>
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <h6 class="fw-bold mb-3">Product Description</h6>
+                <p>@Model.Name is a premium quality garment designed for both style and comfort. Features include:</p>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check2"></i> Premium cotton blend fabric</li>
+                    <li><i class="bi bi-check2"></i> Comfortable fit</li>
+                    <li><i class="bi bi-check2"></i> Easy care instructions</li>
+                    <li><i class="bi bi-check2"></i> Available in multiple colors</li>
+                </ul>
+            </div>
+                    <label class="btn btn-outline-dark" for="small">Small</label>
+
+                    <input type="radio" class="btn-check" name="size" id="medium" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="medium">Medium</label>
+
+                    <input type="radio" class="btn-check" name="size" id="large" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="large">Large</label>
+
+                    <input type="radio" class="btn-check" name="size" id="xlarge" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="xlarge">X-Large</label>
+                </div>
+            </div>
+
+            <!-- Quantity Selection -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-3">Quantity</h6>
+                <div class="input-group" style="width: 130px;">
+                    <button class="btn btn-outline-dark" type="button" id="decrementQuantity">-</button>
+                    <input type="text" class="form-control text-center" value="1" id="quantity">
+                    <button class="btn btn-outline-dark" type="button" id="incrementQuantity">+</button>
+                </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button class="btn btn-dark btn-lg w-100 mb-3">Add to Cart</button>
+
+            <!-- Additional Information -->
+            <div class="mt-4">
+                <h6 class="fw-bold mb-3">Product Details</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">• 100% Cotton</li>
+                    <li class="mb-2">• Machine washable</li>
+                    <li class="mb-2">• Regular fit</li>
+                    <li class="mb-2">• Mandarin collar</li>
+                    <li class="mb-2">• Full sleeves</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('decrementQuantity').addEventListener('click', function() {
+            var input = document.getElementById('quantity');
+            var value = parseInt(input.value);
+            if (value > 1) input.value = value - 1;
+        });
+
+        document.getElementById('incrementQuantity').addEventListener('click', function() {
+            var input = document.getElementById('quantity');
+            var value = parseInt(input.value);
+            input.value = value + 1;
+        });
+    </script>
+}

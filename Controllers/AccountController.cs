@@ -26,15 +26,17 @@ namespace ASP.netcore_Project.Controllers
                 res = AccountObj.Insert(user);
                 if (res)
                 {
-                    TempData["msg"] = "Added successfully";
+                    TempData["msg"] = "Registration successful! Please login with your credentials.";
+                    return RedirectToAction("Login");
                 }
                 else
                 {
-                    TempData["msg"] = "Not Added. something went wrong..!!";
+                    TempData["msg"] = "Registration failed. Please try again.";
                 }
             }
-            return View();
+            return View(user);
         }
+
         public IActionResult Adminlogin()
         {
             return View();

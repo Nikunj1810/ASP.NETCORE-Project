@@ -6706,23 +6706,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shivam\\.nuget\\packages\\": {},
+    "C:\\Users\\Garac\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shivam\\Source\\Repos\\ASP.NETCORE-Project\\ASP.netcore Project.csproj",
+      "projectUniqueName": "E:\\ASP.net core project\\ASP.netcore Project.csproj",
       "projectName": "ASP.netcore Project",
-      "projectPath": "C:\\Users\\Shivam\\Source\\Repos\\ASP.NETCORE-Project\\ASP.netcore Project.csproj",
-      "packagesPath": "C:\\Users\\Shivam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shivam\\Source\\Repos\\ASP.NETCORE-Project\\obj\\",
+      "projectPath": "E:\\ASP.net core project\\ASP.netcore Project.csproj",
+      "packagesPath": "C:\\Users\\Garac\\.nuget\\packages\\",
+      "outputPath": "E:\\ASP.net core project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Shivam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Garac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6749,7 +6749,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -6783,7 +6783,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

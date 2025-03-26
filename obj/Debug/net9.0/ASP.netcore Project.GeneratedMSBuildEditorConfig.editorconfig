@@ -17,85 +17,89 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASP.netcore_Project
 build_property.RootNamespace = ASP.netcore_Project
-build_property.ProjectDir = C:\Users\Shivam\source\repos\ASP.NETCORE-Project\
+build_property.ProjectDir = E:\ASP.net core project\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Shivam\source\repos\ASP.NETCORE-Project
+build_property.MSBuildProjectDirectory = E:\ASP.net core project
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Account/Adminlogin.cshtml]
+[E:/ASP.net core project/Views/Account/Adminlogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBZG1pbmxvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Account/Login.cshtml]
+[E:/ASP.net core project/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Account/Register.cshtml]
+[E:/ASP.net core project/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Admin/AllProducts.cshtml]
+[E:/ASP.net core project/Views/Admin/AllProducts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWxsUHJvZHVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Admin/Dashboard.cshtml]
+[E:/ASP.net core project/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Admin/OrderList.cshtml]
+[E:/ASP.net core project/Views/Admin/OrderList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Cart/Cart.cshtml]
+[E:/ASP.net core project/Views/Cart/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Home/AboutUs.cshtml]
+[E:/ASP.net core project/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Home/ContactUs.cshtml]
+[E:/ASP.net core project/Views/Home/ContactUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0VXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Home/Index.cshtml]
+[E:/ASP.net core project/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Home/Privacy.cshtml]
+[E:/ASP.net core project/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Shared/Adminlayout.cshtml]
+[E:/ASP.net core project/Views/Shared/Adminlayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWlubGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Shared/Error.cshtml]
+[E:/ASP.net core project/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/ASP.net core project/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Shop/Shop.cshtml]
+[E:/ASP.net core project/Views/Shop/ProductDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxQcm9kdWN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/ASP.net core project/Views/Shop/Shop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxTaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/_ViewImports.cshtml]
+[E:/ASP.net core project/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/_ViewStart.cshtml]
+[E:/ASP.net core project/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shivam/source/repos/ASP.NETCORE-Project/Views/Shared/_Layout.cshtml]
+[E:/ASP.net core project/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-icz3yk8j2s
