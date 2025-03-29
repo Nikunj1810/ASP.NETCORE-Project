@@ -44,10 +44,10 @@
                     <div class="btn-group ms-2">
                         <button class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown">ADMIN</button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" asp-controller="Admin" asp-action="AdminProfile">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" asp-controller="Home" asp-action="Index">Logout</a></li>
+                            <li><a class="dropdown-item" asp-controller="Admin" asp-action="Logout" onclick="showLogoutLoader(event)">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -58,5 +58,21 @@
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
+            <div id="loadingOverlay" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+            <script>
+                function showLogoutLoader(event) {
+                    event.preventDefault(); // Stop default logout action
+
+                    document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
+
+                    setTimeout(function () {
+                        window.location.href = "@Url.Action("Logout", "Admin")"; // Redirect after delay
+                    }, 2000); // 2 seconds delay
+                }
+            </script>
 </body>
 </html>
+
+

@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Admin Profile";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .profile-card {
+        width: 400px;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-left: auto; /* Push card away from sidebar */
+        margin-right: auto; /* Keep it centered */
+    }
+
+        .profile-card h2 {
+            color: #222;
+        }
+
+    .form-label {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .form-control {
+        background-color: #f8f9fa;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 400px;">
+        <h6 class="text-center text-muted">Admin</h6>
+        <h2 class="text-center fw-bold">My Profile</h2>
+        <p class="text-center text-muted">Welcome, @Model.UserName!</p>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Username</label>
+            <input type="text" class="form-control" value="@Model.UserName" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Password</label>
+            <input type="password" class="form-control" value="********" readonly />
+        </div>
+
+        <form asp-controller="Admin" asp-action="Logout" method="post">
+            <button type="submit" class="btn btn-danger w-100">Logout</button>
+        </form>
+    </div>
+</div>

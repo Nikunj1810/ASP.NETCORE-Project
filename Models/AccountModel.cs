@@ -1,8 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
+﻿    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Data;
+    using Microsoft.Data.SqlClient;
+    using BCrypt.Net; // Import BCrypt library
 
 namespace ASP.netcore_Project.Models
 {
@@ -26,24 +26,28 @@ namespace ASP.netcore_Project.Models
         public string Email { get; set; }
 
         [Required]
-        public string Password { get; set; } // Stored as plain text (Not Recommended)
+        public string Password { get; set; } // Store the hashed password
 
-        private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;";
 
-        // 🔹 Insert New User (Register)
+        // 🔹 Insert New User (Register with Hashed Password)
         public bool Insert(AccountModel user)
         {
             try
             {
                 using SqlConnection con = new(connectionString);
                 con.Open();
+
+                // Hash the password before storing
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
                 using SqlCommand cmd = new("INSERT INTO Users (FirstName, LastName, PhoneNo, Address, Email, Password) VALUES (@FirstName, @LastName, @PhoneNo, @Address, @Email, @Password)", con);
                 cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
                 cmd.Parameters.AddWithValue("@PhoneNo", user.PhoneNo);
                 cmd.Parameters.AddWithValue("@Address", user.Address);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
-                cmd.Parameters.AddWithValue("@Password", user.Password); // Plain text password
+                cmd.Parameters.AddWithValue("@Password", hashedPassword); // Store hashed password
 
                 return cmd.ExecuteNonQuery() > 0;
             }
@@ -54,7 +58,7 @@ namespace ASP.netcore_Project.Models
             }
         }
 
-        // 🔹 Login Method
+        // 🔹 Login Method (Verify Hashed Password)
         public AccountModel Login(string email, string password)
         {
             AccountModel user = null;
@@ -62,23 +66,28 @@ namespace ASP.netcore_Project.Models
             {
                 using SqlConnection con = new(connectionString);
                 con.Open();
-                using SqlCommand cmd = new("SELECT * FROM Users WHERE Email = @Email AND Password = @Password", con);
+                using SqlCommand cmd = new("SELECT * FROM Users WHERE Email = @Email", con);
                 cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password); // Plain text comparison
 
                 using SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    user = new AccountModel
+                    string storedHashedPassword = reader["Password"].ToString(); // Get the stored hashed password
+
+                    // Verify the entered password with the stored hash
+                    if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
                     {
-                        UserId = Convert.ToInt32(reader["UserId"]),
-                        FirstName = reader["FirstName"].ToString(),
-                        LastName = reader["LastName"].ToString(),
-                        PhoneNo = reader["PhoneNo"].ToString(),
-                        Address = reader["Address"].ToString(),
-                        Email = reader["Email"].ToString(),
-                        Password = reader["Password"].ToString() // Retrieve password (Avoid in real-world apps)
-                    };
+                        user = new AccountModel
+                        {
+                            UserId = Convert.ToInt32(reader["UserId"]),
+                            FirstName = reader["FirstName"].ToString(),
+                            LastName = reader["LastName"].ToString(),
+                            PhoneNo = reader["PhoneNo"].ToString(),
+                            Address = reader["Address"].ToString(),
+                            Email = reader["Email"].ToString(),
+                            Password = storedHashedPassword // Store hashed password (for security)
+                        };
+                    }
                 }
             }
             catch (Exception ex)
@@ -87,6 +96,5 @@ namespace ASP.netcore_Project.Models
             }
             return user; // Returns null if login fails
         }
-        
     }
 }

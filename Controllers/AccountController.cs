@@ -58,11 +58,13 @@ namespace ASP.netcore_Project.Controllers
             return View(user);
         }
 
-        public IActionResult Logout()
+       
+           public IActionResult Logout()
         {
-            HttpContext.Session.Clear(); // ✅ Clear Session on Logout
-            return RedirectToAction("Login");
+            HttpContext.Session.Clear(); // Clears session data
+            TempData["LogoutMessage"] = "Logout Successfully"; // Stores message for the next request
+            return RedirectToAction("Index", "Home"); // Redirects to login page
         }
-      
+
     }
 }

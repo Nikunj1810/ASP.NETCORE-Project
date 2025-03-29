@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -88,10 +88,7 @@ body {
     font-size: 14px;
 }
 
-.promo-text {
-    margin: 0;
-    font-weight: 500;
-}
+
 
 .promo-link {
     color: white;
@@ -141,23 +138,50 @@ body {
 
 /* Search Bar */
 .search-bar {
+    height:36px;
+    position: relative;
+    width: 100%;
+    max-width: 700px; /* Adjust size */
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 25px;
+    padding: 5px 15px;
     display: flex;
     align-items: center;
-    background-color: #f1f1f1;
-    padding: 10px 16px;
-    border-radius: 30px;
-    width: 100%;
+    transition: all 0.3s ease-in-out;
+   
 }
 
+    .search-bar:hover,
+    .search-bar:focus-within {
+        background: #e0e0e0; /* Slightly darker on hover/focus */
+    }
+
     .search-bar i {
-        color: #888;
-        margin-right: 10px;
+        color: #777; /* Darker icon */
+        margin-right: 8px;
     }
 
     .search-bar input {
+        width: 100%;
+        border: none;
         background: transparent;
+        font-size: 14px;
         outline: none;
     }
+.form-control {
+    height: auto; /* Prevent Bootstrap from forcing a large height */
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+
+/* Make sure the form fits inside the navbar */
+.navbar .search-bar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 
 /* Icons */
 .icons a {
@@ -362,7 +386,8 @@ body {
 
 /* Promo Text */
 .promo-text {
-    font-size: 1.2rem;
+    margin: 0;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
@@ -409,10 +434,7 @@ footer a:hover {
 
 /* Responsive Tweaks */
 @media (max-width: 768px) {
-    .search-bar {
-        width: 100%;
-        margin-bottom: 15px;
-    }
+   
 
     .hero-title {
         font-size: 36px;
@@ -434,9 +456,7 @@ footer a:hover {
         padding: 1rem 0;
     }
 
-    .search-bar {
-        margin: 1rem 0;
-    }
+    
 
     .icons {
         justify-content: center;
@@ -548,6 +568,7 @@ footer a:hover {
 
 /* Login Button */
 .login-btn {
+    height:40px;
     background-color: black !important;
     color: white !important;
     font-size: 14px; /* Reduced font size */
@@ -752,7 +773,7 @@ footer a:hover {
 
 /* Sign Up Button Styling */
 .signup-btn {
-    background-color: #28a745; /* Green */
+    background-color: black; /* Green */
     color: white;
     border: 2px solid #28a745;
 }
@@ -765,7 +786,7 @@ footer a:hover {
 
 /* Admin Login Button Styling */
 .admin-btn {
-    background-color: #dc3545; /* Red */
+    background-color: black; /* Red */
     color: white;
     border: 2px solid #dc3545;
 }
@@ -781,5 +802,166 @@ footer a:hover {
     .signup-section {
         flex-direction: column;
         gap: 10px;
+    }
+}
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.store-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+    .form-control:focus {
+        border-color: #1a73e8;
+        box-shadow: none;
+    }
+
+.form-check-input {
+    margin-top: 0.3rem;
+}
+
+.login-btn {
+    height: 48px;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+    .login-btn:hover {
+        background-color: #1557b0;
+    }
+
+
+.alert-danger {
+    padding: 10px;
+    color: #fff;
+    background-color: #dc3545;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*pop up for login*/
+/* ✅ Elegant Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+    /* ✅ Show the popup */
+    .popup-overlay.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+
+/* ✅ Styled Popup Box */
+.popup-box {
+    background: #fff;
+    padding: 25px;
+    width: 400px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ✅ Close Button */
+.popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+    .popup-close:hover {
+        color: #000;
+    }
+
+/* ✅ Title */
+.popup-box h2 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* ✅ Message */
+.popup-box p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* ✅ Login Button (Matches Website Style) */
+.btn-login {
+    display: inline-block;
+    background: #000; /* Black button */
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+    .btn-login:hover {
+        background: #333;
+        transform: scale(1.05);
+    }
+
+/* ✅ Smooth Popup Animation */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }

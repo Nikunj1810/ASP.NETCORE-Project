@@ -1,97 +1,65 @@
-﻿
+﻿@model ASP.netcore_Project.Models.AdminModel
 @{
     ViewData["Title"] = "Admin Login";
 }
 
-<style>
-    .login-container {
-        max-width: 400px;
-        margin: 60px auto;
-        padding: 40px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .store-title {
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .login-title {
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .form-control {
-        height: 48px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 8px 16px;
-        font-size: 16px;
-        transition: border-color 0.2s;
-    }
-
-    .form-control:focus {
-        border-color: #1a73e8;
-        box-shadow: none;
-    }
-
-    .form-check-input {
-        margin-top: 0.3rem;
-    }
-
-    .login-btn {
-        height: 48px;
-        background-color: #1a73e8;
-        border: none;
-        font-size: 16px;
-        font-weight: 500;
-        transition: background-color 0.2s;
-    }
-
-    .login-btn:hover {
-        background-color: #1557b0;
-    }
-
-    .forgot-password {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .forgot-password a {
-        color: #1a73e8;
-        text-decoration: none;
-    }
-
-    .forgot-password a:hover {
-        text-decoration: underline;
-    }
-</style>
-
 <div class="login-container">
     <div class="store-title">QuickCart</div>
     <div class="login-title">Admin Login</div>
-    <form method="post" asp-controller="Account" asp-action="AdminLogin">
+
+    <!-- ✅ Show error message if login fails -->
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Message</div>
+    }
+
+<form id="adminLoginForm" asp-controller="Admin" asp-action="AdminLogin" method="post" onsubmit="return showFullScreenLoader();">
         <div class="mb-4">
-            <input type="email" class="form-control" name="Email" placeholder="Email" required />
+            <input type="text" class="form-control" name="UserName" placeholder="Username" required />
         </div>
         <div class="mb-4">
             <input type="password" class="form-control" name="Password" placeholder="Password" required />
         </div>
-        <div class="form-check mb-4">
-            <input type="checkbox" class="form-check-input" id="rememberCheck" name="RememberMe" />
-            <label class="form-check-label" for="rememberCheck">Keep me logged in</label>
-        </div>
-        <a href="/Admin/Dashboard" class="btn btn-primary w-100 login-btn">Login</a>
+
+        <button type="submit" class="btn btn-primary w-100 login-btn">Login</button>
     </form>
-    <div class="forgot-password">
-        <a href="#">Forgot your password?</a>
+</div>
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="loginToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                @TempData["LogoutSuccess"]
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
 </div>
 
+<!-- ✅ Full-Screen Loading Overlay -->
+<div id="loadingOverlay" style="display: none;">
+    <div class="spinner"></div>
+</div>
+<!-- ✅ JavaScript for Loader (Fixed) -->
+<script>
+    function showFullScreenLoader() {
+        document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
 
+        let loadingTime = 3000; // Set the time in milliseconds (2 seconds)
 
+        setTimeout(function () {
+            document.getElementById("adminLoginForm").submit(); // Submit form after delay
+        }, loadingTime);
+
+        return false; // Prevent immediate form submission
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var toastElement = document.getElementById('logoutToast');
+        if (toastElement && toastElement.innerText.trim() !== "") {
+            var toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+    });
+</script>

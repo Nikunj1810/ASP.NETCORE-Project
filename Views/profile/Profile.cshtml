@@ -38,9 +38,51 @@
         </div>
 
         <div class="text-center">
-            <a asp-action="Logout" asp-controller="Account" class="btn btn-dark w-100">
-                Logout <i class="bi bi-box-arrow-right"></i>
-            </a>
+            <button id="logoutBtn" onclick="logoutWithDelay()" class="btn btn-danger">
+                Logout
+            </button>
         </div>
     </div>
 </div>
+
+<!-- Full-Screen Loading Overlay -->
+<div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+    <div class="spinner-border text-light" role="status" style="width: 4rem; height: 4rem;"></div>
+</div>
+
+<!-- Toast Message for Logout -->
+
+
+<script>
+    function logoutWithDelay() {
+        console.log("Logout button clicked!");
+
+        // Show full-screen loader
+        var overlay = document.getElementById("loadingOverlay");
+        if (overlay) {
+            overlay.style.display = "flex";
+            console.log("Loading overlay shown.");
+        }
+
+        // Show logout toast
+        var toastElement = document.getElementById('logoutToast');
+        if (toastElement) {
+            var toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+
+        // Wait for 3 seconds before redirecting to logout
+        setTimeout(function () {
+            console.log("Redirecting to logout...");
+            window.location.href = "/Account/Logout"; // Replace with your actual logout URL
+        }, 3000);
+    }
+
+    // Hide overlay on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        var overlay = document.getElementById("loadingOverlay");
+        if (overlay) {
+            overlay.style.display = "none";
+        }
+    });
+</script>
