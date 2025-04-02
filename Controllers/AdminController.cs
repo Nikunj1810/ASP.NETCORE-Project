@@ -6,6 +6,7 @@ namespace ASP.netcore_Project.Controllers
 {
     public class AdminController : Controller
     {
+        AdminModel AdminObj = new();
         public IActionResult AdminLogin()
         {
             return View();
@@ -61,5 +62,18 @@ namespace ASP.netcore_Project.Controllers
 
             return View(admin);
         }
+        public IActionResult AllProducts()
+        {
+            return View();
+        }
+        
+        public IActionResult AddProduct()
+        {
+            return View();
+        }
+          
+
+
+
     }
 }
