@@ -73,6 +73,12 @@ wwwroot\images\hero.png
 wwwroot\images\logo.png
 wwwroot\images\mufti.png
 wwwroot\images\prada.png
+wwwroot\images\products\.gitkeep
+wwwroot\images\products\3b168f8b-4a9b-427f-8fc4-275daeac4f7f_Van Heusen Men Athleisure.jpg
+wwwroot\images\products\49350ed3-a776-4f76-b60d-5ed84c392a79_Jeans.jpg
+wwwroot\images\products\4a65ca05-70f1-494a-9664-f20058ec6966_Jeans.jpg
+wwwroot\images\products\5acbb83f-277b-4553-9398-f52cea4de197_Jeans.jpg
+wwwroot\images\products\f5ea2c5a-79f4-4114-9802-baba6eae9cb5_Jeans.jpg
 wwwroot\images\shirt.jpg
 wwwroot\images\user.png
 wwwroot\images\vanheusen.png
@@ -137,3 +143,5 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\uploads\38b680ff-a887-4c95-af45-571873dbffaf.jpg
+wwwroot\uploads\f9706c4a-ada7-4488-8445-e081d8b3719f.jpg

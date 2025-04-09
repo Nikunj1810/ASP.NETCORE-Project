@@ -1,35 +1,81 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations;
-
-using Microsoft.Data.SqlClient;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
 namespace ASP.netcore_Project.Models
 {
     public class CategoryModel
     {
-        [Required]
+        private readonly IMongoCollection<CategoryModel> _categories;
+
+        public CategoryModel()
+        {
+            var client = new MongoClient("mongodb+srv://Nikunj:NikunjG2004@quickcart.dkxso.mongodb.net/?retryWrites=true&w=majority&appName=QuickCart");
+            var database = client.GetDatabase("ASP_QuickCartDB");
+            _categories = database.GetCollection<CategoryModel>("Categories");
+        }
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
+
+        [Required(ErrorMessage = "Category name is required")]
+        [BsonElement("Category")]
         public string Category { get; set; }
 
-        private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;";
+        [BsonIgnore]
+        public List<string> Categories { get; set; } = new List<string>();
 
+        // 🔹 Add Category
         public bool ADD(CategoryModel Cat)
         {
             try
             {
-                using SqlConnection con = new(connectionString);
-                con.Open();
-
-                using SqlCommand cmd = new("INSERT INTO Category (Category) VALUES (@Category)", con);
-                cmd.Parameters.AddWithValue("@Category", Cat.Category);
-
-                return cmd.ExecuteNonQuery() > 0;
+                var exists = _categories.Find(c => c.Category == Cat.Category).FirstOrDefault();
+                if (exists == null)
+                {
+                    _categories.InsertOne(Cat);
+                    return true;
+                }
+                return false; // already exists
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("MongoDB Insert Error: " + ex.Message);
                 return false;
             }
         }
 
+        // 🔹 Delete Category
+        public bool DeleteCategory(string categoryName)
+        {
+            try
+            {
+                var result = _categories.DeleteOne(c => c.Category == categoryName);
+                return result.DeletedCount > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("MongoDB Delete Error: " + ex.Message);
+                return false;
+            }
+        }
+
+        // 🔹 Get All Categories
+        public List<string> GetAllCategories()
+        {
+            List<string> categoryList = new();
+            try
+            {
+                var all = _categories.Find(_ => true).ToList();
+                categoryList = all.Select(c => c.Category).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("MongoDB Fetch Error: " + ex.Message);
+            }
+            return categoryList;
+        }
     }
 }

@@ -1,63 +1,108 @@
-﻿@{
+﻿@model List<ASP.netcore_Project.Models.CartModel>
+@{
     ViewData["Title"] = "Your Cart";
+    decimal totalAmount = Model.Sum(item => item.Quantity * item.Price);
+    decimal deliveryFee = totalAmount > 500 ? 0 : 150;
+    decimal finalTotal = totalAmount + deliveryFee;
+    string deliveryFeeText = deliveryFee == 0 ? "Free" : "₹" + deliveryFee.ToString("N2");
 }
 
 <section class="py-5">
-    <div class="container">
+    <div class="container px-4">
         <!-- Breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cart</li>
-            </ol>
-        </nav>
+        <div class="d-flex align-items-center gap-2 text-muted mb-4">
+            <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-secondary">Home</a>
+            <span>/</span>
+            <span class="fw-semibold text-dark">Cart</span>
+        </div>
 
-        <h1 class="mb-4 fw-bold">Your cart</h1>
+        <h1 class="mb-4 fw-bold">Your Cart</h1>
 
-        @if (Model == null || !Model.Items.Any())
+        @if (!Model.Any())
         {
-            <!-- Empty Cart Message -->
-            <div class="text-center my-5">
-                <h2 class="fw-bold">Your cart is empty</h2>
+            <!-- Empty Cart -->
+            <div class="text-center py-5">
+                <h2 class="fw-bold mb-3">Your cart is empty</h2>
                 <p class="text-muted">Looks like you haven't added anything to your cart yet.</p>
                 <a asp-controller="Home" asp-action="Index" class="btn btn-dark mt-3">Continue Shopping</a>
             </div>
         }
         else
         {
-            <!-- Cart Table -->
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Items)
+            <div class="row g-4">
+                <!-- Cart Items -->
+                <div class="col-lg-8">
+                    <div class="border rounded p-3 bg-white">
+                        @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.ProductName</td>
-                                <td>@item.Price.ToString("C")</td>
-                                <td>@item.Quantity</td>
-                                <td>@(item.Price * item.Quantity).ToString("C")</td>
-                                <td>
-                                    <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm">Remove</a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                            <div class="d-flex gap-3 mb-4 border-bottom pb-3">
+                                <div style="width: 100px; height: 100px;" class="bg-light rounded overflow-hidden">
+                                    <img src="@item.ImageUrl" alt="@item.ProductName" class="img-fluid h-100 w-100 object-fit-cover" />
+                                </div>
 
-            <!-- Cart Summary -->
-            <div class="d-flex justify-content-between align-items-center mt-4">
-                <h3 class="fw-bold">Total: @Model.TotalAmount.ToString("C")</h3>
-                <a asp-controller="Checkout" asp-action="Index" class="btn btn-success btn-lg">Proceed to Checkout</a>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h5 class="mb-1">@item.ProductName</h5>
+                                            <p class="text-muted small mb-0">Size: @item.Size (@item.SizeType)</p>
+                                        </div>
+                                        <form asp-controller="Cart" asp-action="Remove" method="post">
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <button class="btn btn-sm btn-outline-danger" title="Remove">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div class="d-flex border rounded">
+                                            <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-flex align-items-center">
+                                                <input type="hidden" name="id" value="@item.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary px-2" name="quantity" value="@(item.Quantity - 1)">
+                                                    <i class="bi bi-dash"></i>
+                                                </button>
+                                                <span class="px-3">@item.Quantity</span>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary px-2" name="quantity" value="@(item.Quantity + 1)">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <strong>₹@item.Price.ToString("N2")</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="border rounded p-4 bg-white">
+                        <h4 class="fw-bold mb-4">Order Summary</h4>
+
+                        <div class="mb-3 d-flex justify-content-between">
+                            <span class="text-muted">Subtotal</span>
+                            <strong>₹@totalAmount.ToString("N2")</strong>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <span class="text-muted">Delivery Fee</span>
+                            <strong>@Html.Raw(deliveryFeeText)</strong>
+                            @if(totalAmount <= 500)
+                            {
+                                <small class="d-block text-muted">(Free delivery on orders above ₹500)</small>
+                            }
+                        </div>
+                        <hr />
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="fw-bold fs-5">Total</span>
+                            <span class="fw-bold fs-5">₹@finalTotal.ToString("N2")</span>
+                        </div>
+
+                        <a asp-controller="Checkout" asp-action="Index" class="btn btn-dark w-100 py-3">
+                            Go to Checkout
+                        </a>
+                    </div>
+                </div>
             </div>
         }
     </div>

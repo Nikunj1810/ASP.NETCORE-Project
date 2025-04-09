@@ -1,100 +1,81 @@
-﻿    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.Data;
-    using Microsoft.Data.SqlClient;
-    using BCrypt.Net; // Import BCrypt library
+﻿using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using BCrypt.Net;
 
 namespace ASP.netcore_Project.Models
 {
     public class AccountModel
     {
-        public int UserId { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Phone Number is required")]
         public string PhoneNo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Address is required")]
         public string Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email")]
         public string Email { get; set; }
 
-        [Required]
-        public string Password { get; set; } // Store the hashed password
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
-        private readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;";
+        private readonly IMongoCollection<AccountModel> _users;
 
-        // 🔹 Insert New User (Register with Hashed Password)
+        public AccountModel()
+        {
+            var client = new MongoClient("mongodb+srv://Nikunj:NikunjG2004@quickcart.dkxso.mongodb.net/?retryWrites=true&w=majority&appName=QuickCart");
+            var database = client.GetDatabase("ASP_QuickCartDB");
+            _users = database.GetCollection<AccountModel>("Users");
+        }
+
         public bool Insert(AccountModel user)
         {
             try
             {
-                using SqlConnection con = new(connectionString);
-                con.Open();
+                var exists = _users.Find(u => u.Email == user.Email).Any();
+                if (exists)
+                    return false;
 
-                // Hash the password before storing
-                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-
-                using SqlCommand cmd = new("INSERT INTO Users (FirstName, LastName, PhoneNo, Address, Email, Password) VALUES (@FirstName, @LastName, @PhoneNo, @Address, @Email, @Password)", con);
-                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", user.LastName);
-                cmd.Parameters.AddWithValue("@PhoneNo", user.PhoneNo);
-                cmd.Parameters.AddWithValue("@Address", user.Address);
-                cmd.Parameters.AddWithValue("@Email", user.Email);
-                cmd.Parameters.AddWithValue("@Password", hashedPassword); // Store hashed password
-
-                return cmd.ExecuteNonQuery() > 0;
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                _users.InsertOne(user);
+                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Insert Error: " + ex.Message);
                 return false;
             }
         }
 
-        // 🔹 Login Method (Verify Hashed Password)
-        public AccountModel Login(string email, string password)
+        public AccountModel? Login(string email, string password)
         {
-            AccountModel user = null;
             try
             {
-                using SqlConnection con = new(connectionString);
-                con.Open();
-                using SqlCommand cmd = new("SELECT * FROM Users WHERE Email = @Email", con);
-                cmd.Parameters.AddWithValue("@Email", email);
-
-                using SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                var user = _users.Find(u => u.Email == email).FirstOrDefault();
+                if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
                 {
-                    string storedHashedPassword = reader["Password"].ToString(); // Get the stored hashed password
-
-                    // Verify the entered password with the stored hash
-                    if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
-                    {
-                        user = new AccountModel
-                        {
-                            UserId = Convert.ToInt32(reader["UserId"]),
-                            FirstName = reader["FirstName"].ToString(),
-                            LastName = reader["LastName"].ToString(),
-                            PhoneNo = reader["PhoneNo"].ToString(),
-                            Address = reader["Address"].ToString(),
-                            Email = reader["Email"].ToString(),
-                            Password = storedHashedPassword // Store hashed password (for security)
-                        };
-                    }
+                    return user;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Login Error: " + ex.Message);
             }
-            return user; // Returns null if login fails
+
+            return null;
         }
     }
 }

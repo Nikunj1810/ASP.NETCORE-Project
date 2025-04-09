@@ -13,13 +13,14 @@ namespace ASP.netcore_Project.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(string Email, string Password)
         {
-            AccountModel user = AccountObj.Login(Email, Password);
+            var user = AccountObj.Login(Email, Password);
 
             if (user != null)
             {
-                // ✅ Store user details in Session
+                HttpContext.Session.SetString("UserId", user.Id); // <--- This line is missing
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("UserFirstName", user.FirstName);
                 HttpContext.Session.SetString("UserLastName", user.LastName);
@@ -40,6 +41,7 @@ namespace ASP.netcore_Project.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(AccountModel user)
         {
             if (ModelState.IsValid)
@@ -52,19 +54,17 @@ namespace ASP.netcore_Project.Controllers
                 }
                 else
                 {
-                    TempData["msg"] = "Registration failed. Please try again.";
+                    TempData["msg"] = "Email already exists. Please try again.";
                 }
             }
             return View(user);
         }
 
-       
-           public IActionResult Logout()
+        public IActionResult Logout()
         {
-            HttpContext.Session.Clear(); // Clears session data
-            TempData["LogoutMessage"] = "Logout Successfully"; // Stores message for the next request
-            return RedirectToAction("Index", "Home"); // Redirects to login page
+            HttpContext.Session.Clear();
+            TempData["LogoutMessage"] = "Logout Successfully";
+            return RedirectToAction("Index", "Home");
         }
-
     }
 }

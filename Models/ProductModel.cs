@@ -1,19 +1,39 @@
-﻿using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.Collections.Generic;
 
 namespace ASP.netcore_Project.Models
 {
+    public class SizeModel
+    {
+        public string Size { get; set; }
+        public int Quantity { get; set; }
+    }
+
     public class ProductModel
     {
-        public int Id { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.String)]
+        public string Id { get; set; }  // e.g., "PROD-0001"
 
-        [Required]
         public string Name { get; set; }
+        public string Description { get; set; }
+        public string Category { get; set; }
+        public string Brand { get; set; }
+        public string Sku { get; set; }
 
-        [Required]
+        public string SizeType { get; set; } // "standard" or "waist"
+        public List<SizeModel> Sizes { get; set; }
+
+        public int StockQuantity { get; set; }
+
         public decimal Price { get; set; }
+        public decimal OriginalPrice { get; set; }
+        public int DiscountPercentage { get; set; }
 
         public string ImageUrl { get; set; }
-
-        public string Category { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public bool IsNewArrival { get; set; } = false;
     }
 }

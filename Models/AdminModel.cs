@@ -1,37 +1,55 @@
-using System.ComponentModel.DataAnnotations;
-using Microsoft.Data.SqlClient;
-using BCrypt.Net;
+﻿    using System.ComponentModel.DataAnnotations;
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
+    using MongoDB.Driver;
+    using BCrypt.Net;
 
-namespace ASP.netcore_Project.Models
-{
-    public class AdminModel
+    namespace ASP.netcore_Project.Models
     {
-        [Required]
-        public string UserName { get; set; }
-
-        [Required]
-        public string Password { get; set; }
-
-        public bool ValidateAdmin(string username, string password)
+        public class AdminModel
         {
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QuickCartDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
-            using (SqlConnection conn = new(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT Password FROM Admin WHERE UserName = @UserName";
-                using (SqlCommand cmd = new(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@UserName", username);
-                    var result = cmd.ExecuteScalar();
+            [BsonId]
+            [BsonRepresentation(BsonType.ObjectId)]
+            public string? Id { get; set; }
 
-                    if (result != null)
+            [Required]
+            public string UserName { get; set; }
+
+            [Required]
+            public string Password { get; set; }
+
+            private readonly IMongoCollection<AdminModel> _admins;
+
+            public AdminModel()
+            {
+                var client = new MongoClient("mongodb+srv://Nikunj:NikunjG2004@quickcart.dkxso.mongodb.net/?retryWrites=true&w=majority&appName=QuickCart");
+                var database = client.GetDatabase("ASP_QuickCartDB");
+                _admins = database.GetCollection<AdminModel>("Admins");
+
+                // Call seed method to ensure default admin exists
+            
+            }
+
+            public bool ValidateAdmin(string username, string password)
+            {
+                try
+                {
+                    var admin = _admins.Find(a => a.UserName == username).FirstOrDefault();
+                    if (admin != null && BCrypt.Net.BCrypt.Verify(password, admin.Password))
                     {
-                        string hashedPassword = result.ToString();
-                        return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+                        return true;
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("MongoDB Error: " + ex.Message);
+                }
+
+                return false;
             }
-            return false;
+
+
+        
+       
         }
     }
-}

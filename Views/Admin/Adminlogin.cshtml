@@ -8,58 +8,58 @@
     <div class="login-title">Admin Login</div>
 
     <!-- ✅ Show error message if login fails -->
-    @if (ViewBag.Message != null)
+    @if (!ViewData.ModelState.IsValid)
     {
-        <div class="alert alert-danger">@ViewBag.Message</div>
+        <div class="alert alert-danger">
+            @Html.ValidationSummary()
+        </div>
     }
 
-<form id="adminLoginForm" asp-controller="Admin" asp-action="AdminLogin" method="post" onsubmit="return showFullScreenLoader();">
+    @if (TempData["LogoutSuccess"] != null)
+    {
+        <div class="alert alert-success">@TempData["LogoutSuccess"]</div>
+    }
+
+    <!-- ✅ Admin Login Form -->
+    <form id="adminLoginForm" asp-controller="Admin" asp-action="AdminLogin" method="post" onsubmit="return showFullScreenLoader();">
         <div class="mb-4">
-            <input type="text" class="form-control" name="UserName" placeholder="Username" required />
+            <input asp-for="UserName" class="form-control" placeholder="Username" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
         </div>
         <div class="mb-4">
-            <input type="password" class="form-control" name="Password" placeholder="Password" required />
+            <input asp-for="Password" class="form-control" placeholder="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-primary w-100 login-btn">Login</button>
     </form>
 </div>
-<div class="toast-container position-fixed top-0 end-0 p-3">
-    <div id="loginToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-                @TempData["LogoutSuccess"]
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
+
+<!-- ✅ Full-Screen Loading Overlay -->
+<div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
     </div>
 </div>
 
-<!-- ✅ Full-Screen Loading Overlay -->
-<div id="loadingOverlay" style="display: none;">
-    <div class="spinner"></div>
-</div>
-<!-- ✅ JavaScript for Loader (Fixed) -->
-<script>
-    function showFullScreenLoader() {
-        document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
-
-        let loadingTime = 3000; // Set the time in milliseconds (2 seconds)
-
-        setTimeout(function () {
-            document.getElementById("adminLoginForm").submit(); // Submit form after delay
-        }, loadingTime);
-
-        return false; // Prevent immediate form submission
-    }
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var toastElement = document.getElementById('logoutToast');
-        if (toastElement && toastElement.innerText.trim() !== "") {
-            var toast = new bootstrap.Toast(toastElement);
-            toast.show();
+<!-- ✅ JavaScript Loader Logic -->
+@section Scripts {
+    <script>
+        function showFullScreenLoader() {
+            document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
+            return true; // Allow form to submit normally
         }
-    });
-</script>
+
+        // Optional: Auto-show toast if using toast style
+        document.addEventListener("DOMContentLoaded", function () {
+            const toastEl = document.getElementById("loginToast");
+            if (toastEl && toastEl.innerText.trim() !== "") {
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        });
+    </script>
+
+    <!-- Required for validation -->
+    <partial name="_ValidationScriptsPartial" />
+}

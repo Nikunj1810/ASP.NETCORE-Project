@@ -641,15 +641,6 @@ E:\ASP.net core project\obj\Debug\net9.0\ASP.netcore Project.pdb
 E:\ASP.net core project\obj\Debug\net9.0\ASP.netcore Project.genruntimeconfig.cache
 E:\ASP.net core project\obj\Debug\net9.0\ref\ASP.netcore Project.dll
 E:\ASP.net core project\obj\Debug\net9.0\compressed\f0dz5obuqw-z8xoj169se.gz
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.csproj.AssemblyReference.cache
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.GeneratedMSBuildEditorConfig.editorconfig
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.AssemblyInfoInputs.cache
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.AssemblyInfo.cs
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.csproj.CoreCompileInputs.cache
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.MvcApplicationPartsAssemblyInfo.cache
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.RazorAssemblyInfo.cache
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.RazorAssemblyInfo.cs
-E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.sourcelink.json
 E:\ASP.netCore\bin\Debug\net9.0\appsettings.Development.json
 E:\ASP.netCore\bin\Debug\net9.0\appsettings.json
 E:\ASP.netCore\bin\Debug\net9.0\ASP.netcore Project.staticwebassets.runtime.json
@@ -662,6 +653,7 @@ E:\ASP.netCore\bin\Debug\net9.0\ASP.netcore Project.pdb
 E:\ASP.netCore\bin\Debug\net9.0\Azure.Core.dll
 E:\ASP.netCore\bin\Debug\net9.0\Azure.Identity.dll
 E:\ASP.netCore\bin\Debug\net9.0\BCrypt.Net-Next.dll
+E:\ASP.netCore\bin\Debug\net9.0\DnsClient.dll
 E:\ASP.netCore\bin\Debug\net9.0\Humanizer.dll
 E:\ASP.netCore\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\ASP.netCore\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -699,6 +691,8 @@ E:\ASP.netCore\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Entity
 E:\ASP.netCore\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 E:\ASP.netCore\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 E:\ASP.netCore\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+E:\ASP.netCore\bin\Debug\net9.0\MongoDB.Bson.dll
+E:\ASP.netCore\bin\Debug\net9.0\MongoDB.Driver.dll
 E:\ASP.netCore\bin\Debug\net9.0\Mono.TextTemplating.dll
 E:\ASP.netCore\bin\Debug\net9.0\Newtonsoft.Json.dll
 E:\ASP.netCore\bin\Debug\net9.0\NuGet.Common.dll
@@ -710,6 +704,8 @@ E:\ASP.netCore\bin\Debug\net9.0\NuGet.Packaging.dll
 E:\ASP.netCore\bin\Debug\net9.0\NuGet.ProjectModel.dll
 E:\ASP.netCore\bin\Debug\net9.0\NuGet.Protocol.dll
 E:\ASP.netCore\bin\Debug\net9.0\NuGet.Versioning.dll
+E:\ASP.netCore\bin\Debug\net9.0\SharpCompress.dll
+E:\ASP.netCore\bin\Debug\net9.0\Snappier.dll
 E:\ASP.netCore\bin\Debug\net9.0\System.ClientModel.dll
 E:\ASP.netCore\bin\Debug\net9.0\System.CodeDom.dll
 E:\ASP.netCore\bin\Debug\net9.0\System.Composition.AttributedModel.dll
@@ -722,6 +718,7 @@ E:\ASP.netCore\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 E:\ASP.netCore\bin\Debug\net9.0\System.Memory.Data.dll
 E:\ASP.netCore\bin\Debug\net9.0\System.Reflection.MetadataLoadContext.dll
 E:\ASP.netCore\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+E:\ASP.netCore\bin\Debug\net9.0\ZstdSharp.dll
 E:\ASP.netCore\bin\Debug\net9.0\af\Humanizer.resources.dll
 E:\ASP.netCore\bin\Debug\net9.0\ar\Humanizer.resources.dll
 E:\ASP.netCore\bin\Debug\net9.0\az\Humanizer.resources.dll
@@ -879,11 +876,21 @@ E:\ASP.netCore\bin\Debug\net9.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient
 E:\ASP.netCore\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 E:\ASP.netCore\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 E:\ASP.netCore\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.csproj.AssemblyReference.cache
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.AssemblyInfoInputs.cache
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.AssemblyInfo.cs
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.csproj.CoreCompileInputs.cache
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.MvcApplicationPartsAssemblyInfo.cache
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.RazorAssemblyInfo.cache
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.RazorAssemblyInfo.cs
+E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.sourcelink.json
 E:\ASP.netCore\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\ASP.netCore\obj\Debug\net9.0\scopedcss\bundle\ASP.netcore Project.styles.css
 E:\ASP.netCore\obj\Debug\net9.0\scopedcss\projectbundle\ASP.netcore Project.bundle.scp.css
 E:\ASP.netCore\obj\Debug\net9.0\compressed\0ogwibrdmt-zowgx389g7.gz
 E:\ASP.netCore\obj\Debug\net9.0\compressed\xprr9me2y6-ussq62del8.gz
+E:\ASP.netCore\obj\Debug\net9.0\compressed\f0dz5obuqw-dc9fooxxiy.gz
 E:\ASP.netCore\obj\Debug\net9.0\compressed\1tk86tt4ti-61n19gt1b8.gz
 E:\ASP.netCore\obj\Debug\net9.0\compressed\dlsk6guvl0-xtxxf3hu2r.gz
 E:\ASP.netCore\obj\Debug\net9.0\compressed\b4n3pkys6h-t1cqhe9u97.gz
@@ -963,4 +970,3 @@ E:\ASP.netCore\obj\Debug\net9.0\refint\ASP.netcore Project.dll
 E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.pdb
 E:\ASP.netCore\obj\Debug\net9.0\ASP.netcore Project.genruntimeconfig.cache
 E:\ASP.netCore\obj\Debug\net9.0\ref\ASP.netcore Project.dll
-E:\ASP.netCore\obj\Debug\net9.0\compressed\f0dz5obuqw-dc9fooxxiy.gz

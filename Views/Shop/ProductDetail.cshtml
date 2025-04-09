@@ -1,143 +1,145 @@
-@model ASP.netcore_Project.Models.ProductModel
+﻿@model ASP.netcore_Project.Models.ProductModel
 
 @{
-    ViewData["Title"] = "Product Detail";
+    ViewData["Title"] = Model.Name;
+    var isLoggedIn = Context.Session.GetString("UserId") != null;
 }
 
-<div class="container mt-5">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/Shop">Shop</a></li>
-            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
-        </ol>
-    </nav>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <div class="row">
-        <!-- Product Images -->
-        <div class="col-md-6 mb-4">
-            <div class="main-image mb-3">
-                <img src="~/images/shirt.jpg" class="img-fluid rounded" alt="@Model.Name">
-            </div>
-            <div class="thumbnail-images d-flex gap-2">
-                <img src="~/images/shirt.jpg" class="img-thumbnail" style="width: 80px; cursor: pointer;" alt="Thumbnail 1">
-                <img src="~/images/shirt.jpg" class="img-thumbnail" style="width: 80px; cursor: pointer;" alt="Thumbnail 2">
-                <img src="~/images/shirt.jpg" class="img-thumbnail" style="width: 80px; cursor: pointer;" alt="Thumbnail 3">
-            </div>
+<style>
+    .price-now {
+        font-size: 2rem;
+        color: black;
+        font-weight: 700;
+    }
+
+    .price-old {
+        text-decoration: line-through;
+        color: #6c757d;
+        font-size: 1.2rem;
+    }
+
+    .discount-badge {
+        background-color: #dc3545;
+        color: white;
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 5px;
+    }
+
+    .size-button {
+        padding: 10px 20px;
+        border: 1px solid #000;
+        border-radius: 50px;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .size-button:hover,
+        .size-button.active {
+            background-color: #000;
+            color: white;
+        }
+
+    .add-to-cart-btn {
+        background-color: #000;
+        color: white;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .add-to-cart-btn:hover {
+            background-color: #333;
+        }
+</style>
+
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Product Image -->
+        <div class="col-md-6 text-center">
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow" style="max-height: 500px; object-fit: contain;" />
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <h1 class="mb-3">@Model.Name</h1>
-            <h2 class="text-primary mb-4">₹@Model.Price</h2>
+            <h1 class="fw-bold">@Model.Name</h1>
 
-            <p class="mb-4">Classic striped shirt with mandarin collar. Made from lightweight cotton blend for everyday comfort.</p>
+            <div class="d-flex align-items-center gap-3 mt-2">
+                <span class="price-now">₹@Model.Price</span>
+                @if (Model.OriginalPrice > Model.Price)
+                {
+                    <span class="price-old">₹@Model.OriginalPrice</span>
+                    <span class="discount-badge">Save @Model.DiscountPercentage%</span>
+                }
+            </div>
 
-            <!-- Color Selection -->
-            <div class="mb-4">
-                <h6 class="fw-bold mb-3">Select Color</h6>
-                <div class="d-flex gap-2">
-                    <button class="btn btn-outline-dark p-3 rounded-circle" style="background-color: green;"></button>
-                    <button class="btn btn-outline-dark p-3 rounded-circle" style="background-color: blue;"></button>
-                    <button class="btn btn-outline-dark p-3 rounded-circle" style="background-color: black;"></button>
+            <p class="mt-3 mb-1"><strong>Brand:</strong> @Model.Brand</p>
+            <p><strong>Category:</strong> @Model.Category</p>
+            <p class="text-muted">@Model.Description</p>
+
+            <form asp-controller="Cart" asp-action="AddToCart" method="post" id="cartForm">
+                @Html.AntiForgeryToken() <!-- ✅ CSRF protection token -->
+
+                <input type="hidden" name="ProductId" value="@Model.Id" />
+                <input type="hidden" name="Size" id="selectedSizeInput" />
+
+                @if (Model.Sizes != null && Model.Sizes.Any())
+                {
+                    <div class="mt-4">
+                        <h6 class="fw-semibold mb-2">Select Size:</h6>
+                        <div class="d-flex flex-wrap gap-2" id="sizeOptions">
+                            @foreach (var size in Model.Sizes)
+                            {
+                                <button type="button" class="size-button" data-size="@size.Size" @(size.Quantity == 0 ? "disabled" : "") title="Available: @size.Quantity">
+                                    @size.Size
+                                </button>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <div class="mt-4">
+                    <label for="Quantity" class="form-label fw-semibold">Quantity:</label>
+                    <input type="number" name="Quantity" id="quantityInput" class="form-control w-25" min="1" value="1" />
                 </div>
-            </div>
 
-            <!-- Size Selection -->
-            <div class="mb-4">
-                <h6 class="fw-bold mb-3">Choose Size</h6>
-                <div class="btn-group" role="group">
-                    <input type="radio" class="btn-check" name="size" id="small" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="small">S</label>
-
-                    <input type="radio" class="btn-check" name="size" id="medium" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="medium">M</label>
-
-                    <input type="radio" class="btn-check" name="size" id="large" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="large">L</label>
-
-                    <input type="radio" class="btn-check" name="size" id="xlarge" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="xlarge">XL</label>
+                <div class="mt-4">
+                    <button type="submit" class="add-to-cart-btn w-100">Add to Cart</button>
                 </div>
-            </div>
-
-            <!-- Quantity Selector -->
-            <div class="mb-4">
-                <h6 class="fw-bold mb-3">Quantity</h6>
-                <div class="input-group" style="width: 130px;">
-                    <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
-                    <input type="text" class="form-control text-center" id="quantity" value="1" readonly>
-                    <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
-                </div>
-            </div>
-
-            <!-- Add to Cart Button -->
-            <button class="btn btn-primary btn-lg w-100 mb-4">Add to Cart</button>
-
-            <!-- Product Description -->
-            <div class="product-description">
-                <h6 class="fw-bold mb-3">Product Description</h6>
-                <p>@Model.Name is a premium quality garment designed for both style and comfort. Features include:</p>
-                <ul class="list-unstyled">
-                    <li><i class="bi bi-check2"></i> Premium cotton blend fabric</li>
-                    <li><i class="bi bi-check2"></i> Comfortable fit</li>
-                    <li><i class="bi bi-check2"></i> Easy care instructions</li>
-                    <li><i class="bi bi-check2"></i> Available in multiple colors</li>
-                </ul>
-            </div>
-                    <label class="btn btn-outline-dark" for="small">Small</label>
-
-                    <input type="radio" class="btn-check" name="size" id="medium" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="medium">Medium</label>
-
-                    <input type="radio" class="btn-check" name="size" id="large" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="large">Large</label>
-
-                    <input type="radio" class="btn-check" name="size" id="xlarge" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="xlarge">X-Large</label>
-                </div>
-            </div>
-
-            <!-- Quantity Selection -->
-            <div class="mb-4">
-                <h6 class="fw-bold mb-3">Quantity</h6>
-                <div class="input-group" style="width: 130px;">
-                    <button class="btn btn-outline-dark" type="button" id="decrementQuantity">-</button>
-                    <input type="text" class="form-control text-center" value="1" id="quantity">
-                    <button class="btn btn-outline-dark" type="button" id="incrementQuantity">+</button>
-                </div>
-            </div>
-
-            <!-- Add to Cart Button -->
-            <button class="btn btn-dark btn-lg w-100 mb-3">Add to Cart</button>
-
-            <!-- Additional Information -->
-            <div class="mt-4">
-                <h6 class="fw-bold mb-3">Product Details</h6>
-                <ul class="list-unstyled">
-                    <li class="mb-2">• 100% Cotton</li>
-                    <li class="mb-2">• Machine washable</li>
-                    <li class="mb-2">• Regular fit</li>
-                    <li class="mb-2">• Mandarin collar</li>
-                    <li class="mb-2">• Full sleeves</li>
-                </ul>
-            </div>
+            </form>
         </div>
     </div>
 </div>
 
-@section Scripts {
-    <script>
-        document.getElementById('decrementQuantity').addEventListener('click', function() {
-            var input = document.getElementById('quantity');
-            var value = parseInt(input.value);
-            if (value > 1) input.value = value - 1;
-        });
+<script>
+    const sizeButtons = document.querySelectorAll('.size-button');
+    const selectedSizeInput = document.getElementById('selectedSizeInput');
+    const isLoggedIn = @Html.Raw(Json.Serialize(isLoggedIn)); // ✅ Proper boolean
 
-        document.getElementById('incrementQuantity').addEventListener('click', function() {
-            var input = document.getElementById('quantity');
-            var value = parseInt(input.value);
-            input.value = value + 1;
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSizeInput.value = btn.getAttribute('data-size');
         });
-    </script>
-}
+    });
+
+    document.getElementById('cartForm').addEventListener('submit', function (e) {
+        if (!isLoggedIn) {
+            e.preventDefault();
+            alert("Please login to add items to cart.");
+            window.location.href = "/Account/Login";
+            return;
+        }
+
+        if (!selectedSizeInput.value) {
+            e.preventDefault();
+            alert("Please select a size before adding to cart.");
+        }
+    });
+</script>

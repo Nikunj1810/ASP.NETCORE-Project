@@ -49,6 +49,30 @@
       "PackagePath": "staticwebassets\\images\\prada.png"
     },
     {
+      "Id": "E:\\ASP.netCore\\wwwroot\\images\\products\\.gitkeep",
+      "PackagePath": "staticwebassets\\images\\products\\.gitkeep"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\images\\products\\3b168f8b-4a9b-427f-8fc4-275daeac4f7f_Van Heusen Men Athleisure.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\3b168f8b-4a9b-427f-8fc4-275daeac4f7f_Van Heusen Men Athleisure.jpg"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\images\\products\\49350ed3-a776-4f76-b60d-5ed84c392a79_Jeans.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\49350ed3-a776-4f76-b60d-5ed84c392a79_Jeans.jpg"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\images\\products\\4a65ca05-70f1-494a-9664-f20058ec6966_Jeans.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\4a65ca05-70f1-494a-9664-f20058ec6966_Jeans.jpg"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\images\\products\\5acbb83f-277b-4553-9398-f52cea4de197_Jeans.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\5acbb83f-277b-4553-9398-f52cea4de197_Jeans.jpg"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\images\\products\\f5ea2c5a-79f4-4114-9802-baba6eae9cb5_Jeans.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\f5ea2c5a-79f4-4114-9802-baba6eae9cb5_Jeans.jpg"
+    },
+    {
       "Id": "E:\\ASP.netCore\\wwwroot\\images\\shirt.jpg",
       "PackagePath": "staticwebassets\\images\\shirt.jpg"
     },
@@ -303,6 +327,14 @@
     {
       "Id": "E:\\ASP.netCore\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\uploads\\38b680ff-a887-4c95-af45-571873dbffaf.jpg",
+      "PackagePath": "staticwebassets\\uploads\\38b680ff-a887-4c95-af45-571873dbffaf.jpg"
+    },
+    {
+      "Id": "E:\\ASP.netCore\\wwwroot\\uploads\\f9706c4a-ada7-4488-8445-e081d8b3719f.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f9706c4a-ada7-4488-8445-e081d8b3719f.jpg"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ASP.netcore Project.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

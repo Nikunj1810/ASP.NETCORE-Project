@@ -9,7 +9,16 @@
         <h3 class="text-center fw-bold">Create an Account</h3>
         <p class="text-center text-muted">Sign up to get started</p>
 
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert alert-info text-center">
+                @TempData["msg"]
+            </div>
+        }
+
         <form asp-action="Register" asp-controller="Account" method="post">
+            @Html.AntiForgeryToken()
+
             <div class="mb-3">
                 <label class="form-label fw-bold"><i class="fas fa-user"></i> First Name</label>
                 <input type="text" asp-for="FirstName" class="form-control rounded-3" placeholder="Enter First Name">
@@ -61,3 +70,7 @@
 
 <!-- FontAwesome for Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- Validation Scripts -->
+<partial name="_ValidationScriptsPartial" />
+    
