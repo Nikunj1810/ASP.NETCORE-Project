@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -60,106 +60,104 @@
     </div>
 </section>
 <!-- New Arrivals -->
-<section class="py-5">
+<section class="py-5" style="background-color: #f8f9fa; border-radius: 10px; margin: 20px; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <div class="container">
         <h1 class="text-center fw-bold display-5 mb-5 text-uppercase">New Arrivals</h1>
         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Green Striped Shirt">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Green Striped Shirt</h5>
-                        <p class="card-text">₹ 699</p>
+            @if (ViewBag.NewArrivals != null && ViewBag.NewArrivals.Count > 0)
+            {
+                @foreach (var product in ViewBag.NewArrivals)
+                {
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="card border-0 shadow-sm">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img src="@product.ImageUrl" class="card-img-top img-fluid" alt="@product.Name">
+                            }
+                            else
+                            {
+                                <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="@product.Name">
+                            }
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">@product.Name</h5>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <p class="card-text mb-0">₹ @product.Price</p>
+                                    @if (product.DiscountPercentage > 0)
+                                    {
+                                        <p class="card-text mb-0 text-decoration-line-through text-muted">₹ @product.OriginalPrice</p>
+                                        <span class="discount-badge">@product.DiscountPercentage% OFF</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white border-0 text-center">
+                                <a href="/Shop/ProductDetail?id=@product.Id" class="btn btn-sm btn-outline-dark">View Details</a>
+                            </div>
+                        </div>
                     </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p>No new arrivals found at the moment.</p>
                 </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Retro Cassette Graphic Tee">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Retro Cassette Graphic Tee</h5>
-                        <p class="card-text">₹ 499</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Courage Orange T-shirt">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Courage Orange T-shirt</h5>
-                        <p class="card-text">₹ 450</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Red Plaid Flannel Shirt">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Red Plaid Flannel Shirt</h5>
-                        <p class="card-text">₹ 799</p>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
         <div class="mt-4 text-center">
-            <a href="/new-arrivals" class="btn btn-outline-dark">View All →</a>
+            <a href="/Shop/Shop" class="btn btn-outline-dark">View All →</a>
         </div>
     </div>
 </section>
 
 <!-- Top Selling -->
-<section class="py-5">
+<section class="py-5" style="background-color: #f8f9fa; border-radius: 10px; margin: 20px; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <div class="container">
         <h1 class="text-center fw-bold display-5 mb-5 text-uppercase">Top Selling</h1>
         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Green Striped Shirt">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Green Striped Shirt</h5>
-                        <p class="card-text">₹ 699</p>
+            @if (ViewBag.TopSelling != null && ViewBag.TopSelling.Count > 0)
+            {
+                @foreach (var product in ViewBag.TopSelling)
+                {
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="card border-0 shadow-sm">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img src="@product.ImageUrl" class="card-img-top img-fluid" alt="@product.Name">
+                            }
+                            else
+                            {
+                                <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="@product.Name">
+                            }
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">@product.Name</h5>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <p class="card-text mb-0">₹ @product.Price</p>
+                                    @if (product.DiscountPercentage > 0)
+                                    {
+                                        <p class="card-text mb-0 text-decoration-line-through text-muted">₹ @product.OriginalPrice</p>
+                                        <span class="discount-badge">@product.DiscountPercentage% OFF</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white border-0 text-center">
+                                <a href="/Shop/ProductDetail?id=@product.Id" class="btn btn-sm btn-outline-dark">View Details</a>
+                            </div>
+                        </div>
                     </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p>No top selling products found at the moment.</p>
                 </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Retro Cassette Graphic Tee">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Retro Cassette Graphic Tee</h5>
-                        <p class="card-text">₹ 499</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Courage Orange T-shirt">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Courage Orange T-shirt</h5>
-                        <p class="card-text">₹ 450</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card border-0 shadow-sm">
-                    <img src="~/images/shirt.jpg" class="card-img-top img-fluid" alt="Red Plaid Flannel Shirt">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Red Plaid Flannel Shirt</h5>
-                        <p class="card-text">₹ 799</p>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
         <div class="mt-4 text-center">
-            <a href="/new-arrivals" class="btn btn-outline-dark">View All →</a>
+            <a href="/Shop/Shop" class="btn btn-outline-dark">View All →</a>
         </div>
     </div>
-            </section>
+</section>
 
             <!-- Testimonials -->
             <section class="py-5 bg-white">

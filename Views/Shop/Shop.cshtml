@@ -8,7 +8,14 @@
 <!-- Bootstrap & FontAwesome -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+<style>
+      .discount-badge {
+       
+        color: green;
+        font-size: 1rem;
+        border-radius: 5px;
+    }
+</style>
 <div class="container mt-4">
     <div class="row">
         <!-- Filters Section -->
@@ -74,7 +81,7 @@
                                         @if (product.OriginalPrice > product.Price)
                                         {
                                             <span class="text-muted text-decoration-line-through small">₹@product.OriginalPrice</span>
-                                            <span class="badge bg-danger ms-2">-@product.DiscountPercentage% OFF</span>
+                                            <span class = "discount-badge">@product.DiscountPercentage% OFF</span>
                                         }
                                     </div>
 

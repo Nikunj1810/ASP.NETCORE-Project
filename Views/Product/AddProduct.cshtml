@@ -1,4 +1,4 @@
-﻿@model ASP.netcore_Project.Models.ProductModel
+@model ASP.netcore_Project.Models.ProductModel
 @{
     var isEdit = ViewBag.IsEdit != null && (bool)ViewBag.IsEdit;
     ViewData["Title"] = isEdit ? "Edit Product" : "Add Product";
@@ -6,6 +6,17 @@
 
     var categoryModel = new ASP.netcore_Project.Models.CategoryModel();
     var categories = categoryModel.GetAllCategories();
+    
+    // Initialize Model if it's null to prevent NullReferenceException
+    // if (Model == null)
+    // {
+    //     Model = new ASP.netcore_Project.Models.ProductModel
+    //     {
+    //         Sizes = new List<ASP.netcore_Project.Models.SizeModel>(),
+        //         SizeType = "standard",
+    //         ImageUrl = ""
+    //     };
+    // }
 }
 
 <style>

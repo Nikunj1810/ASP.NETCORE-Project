@@ -3,58 +3,81 @@
     ViewData["Title"] = "Login";
 }
 
-<section>
-    <div class="cont">
-        <div class="breadcrumb">
-            <a href="/">Home</a>
-            <span>/</span>
-            <span>LOGIN</span>
-        </div>
+<section class="py-5" style="background-color: #f8f9fa;">
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow-sm rounded-4 p-4" style="max-width: 420px; width: 100%;">
+            
+            <!-- Breadcrumb -->
+            <div class="mb-3 text-muted small">
+                <a href="/" class="text-decoration-none text-secondary">Home</a>
+                <span class="mx-1">/</span>
+                <span class="fw-bold text-dark">LOGIN</span>
+            </div>
 
-        <div class="login-card">
-            <h1>Welcome Back!</h1>
-            <p>Log in to your account to continue</p>
+            <!-- Header -->
+            <h2 class="fw-bold text-center mb-1">Welcome Back!</h2>
+            <p class="text-center text-muted mb-4">Log in to your account to continue</p>
 
-            <!-- Login Form -->
+            <!-- Form -->
             <form id="loginForm" asp-controller="Account" asp-action="Login" method="post" onsubmit="return showFullScreenLoader();">
-                <div class="form-group">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" placeholder="Enter your email">
-                    <span asp-validation-for="Email" class="text-danger"></span>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email Address</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password">
-                    <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" />
+                    <label class="form-check-label" for="rememberMe">Keep me logged in</label>
+                </div>
+
+                <button type="submit" class="btn btn-dark w-100 d-flex justify-content-center align-items-center gap-2">
+                    LOGIN <span class="fs-5">→</span>
+                </button>
             </form>
 
-            <div class="signup-section d-flex justify-content-center mt-3">
-                <a asp-controller="Account" asp-action="Register" class="signup-btn me-3">Sign Up</a>
-                <a asp-controller="Admin" asp-action="AdminLogin" class="admin-btn">Admin Login</a>
+            <!-- Extra links -->
+            <div class="mt-4">
+                <a asp-controller="Admin" asp-action="AdminLogin" class="btn btn-outline-secondary w-100 mb-3">Admin Login</a>
+                <div class="text-center mb-3">
+                    <a asp-controller="Account" asp-action="ForgotPassword" class="text-primary text-decoration-none">Forgot your password?</a>
+                </div>
+
+                <hr />
+                <p class="text-center text-muted">Don't have an account?</p>
+                <a asp-controller="Account" asp-action="Register" class="btn btn-outline-secondary w-100">Sign Up</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Full-Screen Loading Overlay -->
-<div id="loadingOverlay" style="display: none;">
-    <div class="spinner"></div>
+<div id="loadingOverlay" class="position-fixed top-0 start-0 w-100 h-100 d-none align-items-center justify-content-center bg-white bg-opacity-75" style="z-index: 1050;">
+    <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status"></div>
 </div>
+
 <script>
     function showFullScreenLoader() {
-        document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
+        const overlay = document.getElementById("loadingOverlay");
+        overlay.classList.remove("d-none");
 
-        let loadingTime = 3000; // Set the time in milliseconds (2 seconds)
+        setTimeout(() => {
+            document.getElementById("loginForm").submit();
+        }, 3000);
 
-        setTimeout(function () {
-            document.getElementById("loginForm").submit(); // Submit form after delay
-        }, loadingTime);
-
-        return false; // Prevent immediate form submission
+        return false;
     }
 </script>
 
+@if (TempData["ErrorMessage"] != null) {
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle me-2"></i> @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}

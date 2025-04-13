@@ -32,6 +32,11 @@ namespace ASP.netcore_Project.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public string? PasswordResetToken { get; set; }
+
+        public DateTime? PasswordResetTokenCreatedAt { get; set; }
+        public bool IsPasswordResetTokenUsed { get; set; }
+
         private readonly IMongoCollection<AccountModel> _users;
 
         public AccountModel()
@@ -60,6 +65,49 @@ namespace ASP.netcore_Project.Models
             }
         }
 
+        // Updated Update method with password flag
+        public bool Update(AccountModel user, bool isPasswordPlainText = true)
+        {
+            try
+            {
+                var filter = Builders<AccountModel>.Filter.Eq(u => u.Email, user.Email);
+                string passwordToStore = isPasswordPlainText
+                    ? BCrypt.Net.BCrypt.HashPassword(user.Password)
+                    : user.Password;
+
+                var update = Builders<AccountModel>.Update
+                    .Set(u => u.FirstName, user.FirstName)
+                    .Set(u => u.LastName, user.LastName)
+                    .Set(u => u.PhoneNo, user.PhoneNo)
+                    .Set(u => u.Address, user.Address)
+                    .Set(u => u.Password, passwordToStore)
+                    .Set(u => u.PasswordResetToken, user.PasswordResetToken)
+                    .Set(u => u.PasswordResetTokenCreatedAt, user.PasswordResetTokenCreatedAt)
+                    .Set(u => u.IsPasswordResetTokenUsed, user.IsPasswordResetTokenUsed);
+
+                var result = _users.UpdateOne(filter, update);
+                return result.ModifiedCount > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Update Error: " + ex.Message);
+                return false;
+            }
+        }
+
+        public AccountModel? FindByEmail(string email)
+        {
+            try
+            {
+                return _users.Find(u => u.Email == email).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("FindByEmail Error: " + ex.Message);
+                return null;
+            }
+        }
+
         public AccountModel? Login(string email, string password)
         {
             try
@@ -76,6 +124,58 @@ namespace ASP.netcore_Project.Models
             }
 
             return null;
+        }
+
+        public AccountModel? FindByToken(string token)
+        {
+            try
+            {
+                return _users.Find(u => u.PasswordResetToken == token).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("FindByToken Error: " + ex.Message);
+                return null;
+            }
+        }
+
+        public bool ValidatePasswordResetToken(string token)
+        {
+            var user = FindByToken(token);
+            if (user == null || user.IsPasswordResetTokenUsed)
+                return false;
+
+            if (user.PasswordResetTokenCreatedAt.HasValue &&
+                (DateTime.UtcNow - user.PasswordResetTokenCreatedAt.Value).TotalHours > 1)
+            {
+                user.IsPasswordResetTokenUsed = true;
+                Update(user, false);
+                return false;
+            }
+
+            return true;
+        }
+
+        public void UsePasswordResetToken(string token)
+        {
+            var user = FindByToken(token);
+            if (user != null && !user.IsPasswordResetTokenUsed)
+            {
+                user.IsPasswordResetTokenUsed = true;
+                Update(user, false);
+            }
+        }
+
+        // ✅ New method for resetting password
+        public bool ResetPassword(string token, string newPassword)
+        {
+            var user = FindByToken(token);
+            if (user == null || user.IsPasswordResetTokenUsed)
+                return false;
+
+            user.Password = newPassword; // plain password
+            user.IsPasswordResetTokenUsed = true;
+            return Update(user, isPasswordPlainText: true); // will hash it once
         }
     }
 }

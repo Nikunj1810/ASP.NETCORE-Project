@@ -1,0 +1,91 @@
+@model IEnumerable<ASP.netcore_Project.Models.ContactUsModel>
+
+@{ Layout = "~/Views/Shared/Adminlayout.cshtml"; }
+
+<style>
+    .inquiry-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 16px;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+        background-color: #fff;
+    }
+
+    .inquiry-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .inquiry-header {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #212529;
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 0.75rem;
+    }
+
+    .inquiry-info {
+        margin-bottom: 0.5rem;
+    }
+
+    .inquiry-label {
+        font-weight: 500;
+        color: #6c757d;
+        margin-right: 8px;
+    }
+
+    .no-inquiries {
+        padding: 3rem;
+        text-align: center;
+        color: #888;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="container py-5">
+    <h3 class="mb-4 fw-bold text-dark"><i class="fas fa-question-circle me-2 text-primary"></i>Customer Inquiries</h3>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var query in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="inquiry-card p-4 shadow-sm h-100">
+                        <div class="inquiry-header mb-3">@query.Subject</div>
+                        <div class="inquiry-info">
+                            <span class="inquiry-label">Name:</span> @query.Name
+                        </div>
+                        <div class="inquiry-info">
+                            <span class="inquiry-label">Email:</span> @query.Email
+                        </div>
+                        <div class="inquiry-info">
+                            <span class="inquiry-label">Message:</span>
+                            <div class="text-dark mt-1">@query.Message</div>
+                        </div>
+                        <form asp-controller="Admin" asp-action="DeleteQuery" asp-route-id="@query.Id" method="post" class="mt-3">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="no-inquiries">
+            <i class="fas fa-info-circle fa-2x mb-3 text-muted"></i><br />
+            No customer inquiries found.
+        </div>
+    }
+</div>
+
+@{
+    var successMessage = TempData["SuccessMessage"] as string;
+    if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success">
+            @successMessage
+        </div>
+        TempData.Remove("SuccessMessage");
+    }
+}

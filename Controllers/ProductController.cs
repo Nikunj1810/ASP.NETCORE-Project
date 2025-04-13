@@ -53,7 +53,14 @@ namespace ASP.netcore_Project.Controllers
         [HttpGet]
         public IActionResult AddProduct()
         {
-            return View();
+            // Initialize a new ProductModel to prevent null reference exceptions in the view
+            var model = new ProductModel
+            {
+                Sizes = new List<SizeModel>(),
+                SizeType = "standard",
+                ImageUrl = ""
+            };
+            return View(model);
         }
 
         public IActionResult EditProduct(string id)

@@ -7164,11 +7164,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ASP.netCore\\ASP.netcore Project.csproj",
+      "projectUniqueName": "E:\\Asp.net\\ASP.netcore Project.csproj",
       "projectName": "ASP.netcore Project",
-      "projectPath": "E:\\ASP.netCore\\ASP.netcore Project.csproj",
+      "projectPath": "E:\\Asp.net\\ASP.netcore Project.csproj",
       "packagesPath": "C:\\Users\\Garac\\.nuget\\packages\\",
-      "outputPath": "E:\\ASP.netCore\\obj\\",
+      "outputPath": "E:\\Asp.net\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
