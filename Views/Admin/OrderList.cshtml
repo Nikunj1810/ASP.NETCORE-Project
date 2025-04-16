@@ -50,6 +50,7 @@
 </style>
 
 <div class="container py-5">
+    @Html.AntiForgeryToken()
     <div class="breadcrumb mb-4">
         <a href="@Url.Action("Dashboard", "Admin")">Dashboard</a> &gt; <span>Order List</span>
     </div>
@@ -85,61 +86,43 @@
         </form>
     </div>
 
-    <form id="bulkUpdateForm" method="post" action="@Url.Action("UpdateOrderStatus", "Admin")">
-        <div class="mb-3 order-actions">
-            <select name="status" class="form-select" style="width: 200px;">
-                <option value="">Select Status</option>
-                <option value="pending">Pending</option>
-                <option value="processing">Processing</option>
-                <option value="shipped">Shipped</option>
-                <option value="delivered">Delivered</option>
-                <option value="cancelled">Cancelled</option>
-            </select>
-            <button type="submit" class="btn btn-primary" id="bulkUpdateBtn" disabled>Update Selected Orders</button>
-        </div>
-
-        <div class="order-card mb-4">
-            <div class="table-responsive">
-                <table class="table table-hover order-table mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th><input type="checkbox" id="selectAll" /></th>
-                            <th>Product</th>
-                            <th>Order ID</th>
-                            <th>Date</th>
-                            <th>Customer Name</th>
-                            <th>Status</th>
-                            <th>Amount</th>
+    <div class="order-card mb-4">
+        <div class="table-responsive">
+            <table class="table table-hover order-table mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Product</th>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Customer Name</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr class="order-row" data-order-id="@order.Id">
+                            <td>@(order.Items.Count > 0 ? order.Items[0].Name : "N/A")</td>
+                            <td>@order.Id</td>
+                            <td>@order.OrderDate.ToString("MM/dd/yyyy")</td>
+                            <td>@(order.ShippingInfo?.FullName ?? "N/A")</td>
+                            <td>
+                                <select class="form-select status-select" data-order-id="@order.Id" style="width: 140px;">
+                                    <option value="pending" selected="@(order.Status == "pending")">Pending</option>
+                                    <option value="processing" selected="@(order.Status == "processing")">Processing</option>
+                                    <option value="shipped" selected="@(order.Status == "shipped")">Shipped</option>
+                                    <option value="delivered" selected="@(order.Status == "delivered")">Delivered</option>
+                                    <option value="cancelled" selected="@(order.Status == "cancelled")">Cancelled</option>
+                                </select>
+                            </td>
+                            <td>₹@order.OrderTotal.ToString("N2")</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var order in Model)
-                        {
-                            <tr class="order-row" data-order-id="@order.Id">
-                                <td onclick="event.stopPropagation()">
-                                    <input type="checkbox" name="orderIds" value="@order.Id" class="order-checkbox" />
-                                </td>
-                                <td>@(order.Items.Count > 0 ? order.Items[0].Name : "N/A")</td>
-                                <td>@order.Id</td>
-                                <td>@order.OrderDate.ToString("MM/dd/yyyy")</td>
-                                <td>@(order.ShippingInfo?.FullName ?? "N/A")</td>
-                                <td>
-                                    <span class="order-badge bg-@(
-                                        order.Status == "delivered" ? "success" :
-                                        order.Status == "cancelled" ? "danger" :
-                                        order.Status == "shipped" ? "info" :
-                                        "warning"
-                                    ) text-white">@order.Status</span>
-                                </td>
-                                <td>₹@order.OrderTotal.ToString("N2")</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                    }
+                </tbody>
+            </table>
         </div>
-    </form>
-
+    </div>
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             <li class="page-item"><a class="page-link" href="#">«</a></li>
@@ -152,37 +135,90 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const rows = document.querySelectorAll('.order-row');
+        const statusSelects = document.querySelectorAll('.status-select');
+
+        // Handle individual status changes
+        statusSelects.forEach(select => {
+            select.addEventListener('change', function() {
+                const orderId = this.dataset.orderId;
+                const newStatus = this.value;
+                
+                // Show loading state
+                select.disabled = true;
+                
+                const token = document.querySelector('input[name="__RequestVerificationToken"]');
+                if (!token) {
+                    console.error('Anti-forgery token not found');
+                    return;
+                }
+
+                fetch('@Url.Action("UpdateOrderStatus", "Admin")', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': token.value
+                    },
+                    body: JSON.stringify({
+                        orderIds: [orderId],
+                        status: newStatus
+                    })
+                })
+                .then(async response => {
+                    const data = await response.json();
+                    if (!response.ok) {
+                        throw new Error(data.message || 'Failed to update order status');
+                    }
+                    return data;
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Show success message
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert alert-success alert-dismissible fade show';
+                        alertDiv.innerHTML = `
+                            ${data.message}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        `;
+                        document.querySelector('.container').insertBefore(alertDiv, document.querySelector('.d-flex'));
+                        
+                        // Update the previous value to reflect the successful change
+                        this.setAttribute('data-previous-value', newStatus);
+                    } else {
+                        throw new Error(data.message || 'Failed to update order status');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+                    alertDiv.innerHTML = `
+                        ${error.message || 'An error occurred while updating the order status'}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    `;
+                    document.querySelector('.container').insertBefore(alertDiv, document.querySelector('.d-flex'));
+                    // Revert the select to its previous value
+                    this.value = this.getAttribute('data-previous-value');
+                })
+                .finally(() => {
+                    select.disabled = false;
+                });
+
+                // Store the current value as previous value
+                this.setAttribute('data-previous-value', this.value);
+            });
+
+            // Store initial value
+            select.setAttribute('data-previous-value', select.value);
+        });
+
+        // Row click handler for order details
         rows.forEach(row => {
             row.addEventListener('click', function (e) {
-                if (e.target.type !== 'checkbox') {
+                if (!e.target.classList.contains('status-select')) {
                     const orderId = this.dataset.orderId;
                     window.location.href = '@Url.Action("OrderDetail", "Admin")?orderId=' + orderId;
                 }
             });
         });
-
-        const selectAll = document.getElementById('selectAll');
-        const checkboxes = document.querySelectorAll('.order-checkbox');
-        const bulkBtn = document.getElementById('bulkUpdateBtn');
-
-        selectAll.addEventListener('change', function () {
-            checkboxes.forEach(cb => cb.checked = this.checked);
-            updateBulkButtonState();
-        });
-
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', function () {
-                updateBulkButtonState();
-                const allChecked = [...checkboxes].every(c => c.checked);
-                const noneChecked = [...checkboxes].every(c => !c.checked);
-                selectAll.checked = allChecked;
-                selectAll.indeterminate = !allChecked && !noneChecked;
-            });
-        });
-
-        function updateBulkButtonState() {
-            const anyChecked = [...checkboxes].some(cb => cb.checked);
-            bulkBtn.disabled = !anyChecked;
-        }
     });
 </script>

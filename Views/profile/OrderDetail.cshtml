@@ -1,0 +1,154 @@
+@model ASP.netcore_Project.Models.OrderModel
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-3xl fw-semibold text-dark">Order Details</h1>
+        <nav class="text-sm">
+            <a href="/" class="text-primary text-decoration-none">Home</a> &gt;
+            <a href="/Profile/OrderHistory" class="text-primary text-decoration-none">Orders</a> &gt;
+            Order Details
+        </nav>
+    </div>
+
+    <button onclick="window.print()" class="btn btn-dark mb-4 shadow-sm">
+        <i class="bi bi-printer"></i> Print Invoice
+    </button>
+
+    <div id="invoice" class="card shadow-lg border border-light rounded-4 p-4 bg-white text-black">
+        <div class="text-center mb-4">
+            <h1 class="text-3xl fw-bold mb-1" style="letter-spacing: 1px;">QuickCart</h1>
+            <h2 class="h4 mb-1">INVOICE</h2>
+            <p class="mb-0">Order #: <strong>@Model.Id</strong></p>
+            <p>Date: <strong>@Model.OrderDate.ToString("MMM dd, yyyy")</strong></p>
+            <hr class="my-4" />
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h3 class="text-muted h5 mb-3">Customer Information</h3>
+                <p><strong>Name:</strong> @Model.ShippingInfo.FullName</p>
+                <p><strong>Email:</strong> @Model.ShippingInfo.Email</p>
+                <p><strong>Phone:</strong> @Model.ShippingInfo.Phone</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <h3 class="text-muted h5 mb-3">Shipping Information</h3>
+                <p><strong>Address:</strong> @Model.ShippingInfo.Address</p>
+                <p>@Model.ShippingInfo.City, @Model.ShippingInfo.State @Model.ShippingInfo.ZipCode</p>
+                <p><strong>Payment Method:</strong> @Model.PaymentMethod</p>
+                <p><strong>Status:</strong> 
+                    <span class="px-3 py-1 text-xs fw-semibold rounded-pill 
+                        @(Model.Status.ToLower() switch {
+                            "delivered" => "bg-success bg-opacity-25 text-success",
+                            "processing" => "bg-primary bg-opacity-25 text-primary",
+                            "cancelled" => "bg-danger bg-opacity-25 text-danger",
+                            "pending" => "bg-warning bg-opacity-25 text-dark",
+                            _ => "bg-secondary bg-opacity-25 text-dark"
+                        })">
+                        @Model.Status
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <h3 class="h5 mb-3 fw-semibold">Ordered Products</h3>
+        <div class="table-responsive mb-4">
+            <table class="table align-middle border">
+                <thead class="bg-light text-center">
+                    <tr>
+                        <th class="py-2 border">#</th>
+                        <th class="py-2 border">Product</th>
+                        <th class="py-2 border">Size</th>
+                        <th class="py-2 border">Price</th>
+                        <th class="py-2 border">Qty</th>
+                        <th class="py-2 border">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Items.Count; i++)
+                    {
+                        var item = Model.Items[i];
+                        <tr class="text-center">
+                            <td class="p-2 border">@(i + 1)</td>
+                            <td class="p-2 border">@item.Name</td>
+                            <td class="p-2 border">@item.Size</td>
+                            <td class="p-2 border">₹@item.Price.ToString("0.00")</td>
+                            <td class="p-2 border">@item.Quantity</td>
+                            <td class="p-2 border">₹@((item.Price * item.Quantity).ToString("0.00"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row justify-content-end">
+            <div class="col-md-6">
+                <h3 class="h5 mb-3 fw-semibold">Order Summary</h3>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <td class="py-1"><strong>Subtotal:</strong></td>
+                            <td class="py-1 text-end">₹@Model.Subtotal.ToString("0.00")</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1"><strong>Delivery Fee:</strong></td>
+                            <td class="py-1 text-end">₹@Model.DeliveryFee.ToString("0.00")</td>
+                        </tr>
+                        <tr class="border-top">
+                            <td class="py-2 h5"><strong>Total:</strong></td>
+                            <td class="py-2 text-end h5 fw-bold">₹@Model.OrderTotal.ToString("0.00")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+      @@media print {
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .btn-dark, nav, .d-flex {
+                display: none !important;
+            }
+            #invoice {
+                display: block !important;
+            }
+            .card {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: white !important;
+            }
+            .table {
+                page-break-inside: auto;
+            }
+            tr {
+                page-break-inside: avoid;
+            }
+            thead {
+                display: table-header-group;
+            }
+            .bg-success, .bg-primary, .bg-danger, .bg-warning {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+        }
+
+        @@page {
+            margin: 1cm;
+            size: A4 portrait;
+        }
+    </style>
+}

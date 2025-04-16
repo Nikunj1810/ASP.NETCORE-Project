@@ -125,7 +125,12 @@ namespace ASP.netcore_Project.Controllers
             else
             {
                 // If no new image uploaded, use existing product's image
-                if (string.IsNullOrEmpty(model.ImageUrl))
+                if (imageFile == null || imageFile.Length == 0)
+                {
+                    model.ImageUrl = existingProduct.ImageUrl;
+                }
+                // Ensure we have a valid ImageUrl even if the hidden field didn't pass the value correctly
+                else if (string.IsNullOrEmpty(model.ImageUrl))
                 {
                     model.ImageUrl = existingProduct.ImageUrl;
                 }
@@ -134,6 +139,7 @@ namespace ASP.netcore_Project.Controllers
                     .Set(p => p.Name, model.Name)
                     .Set(p => p.Description, model.Description)
                     .Set(p => p.Category, model.Category)
+                    .Set(p => p.Gender, model.Gender)
                     .Set(p => p.Brand, model.Brand)
                     .Set(p => p.Sku, model.Sku)
                     .Set(p => p.SizeType, model.SizeType)
@@ -158,6 +164,24 @@ namespace ASP.netcore_Project.Controllers
             if (product == null) return NotFound();
 
             return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(string id)
+        {
+            try
+            {
+                var result = await _productCollection.DeleteOneAsync(p => p.Id == id);
+                if (result.DeletedCount > 0)
+                {
+                    return Json(new { success = true, message = "Product deleted successfully!" });
+                }
+                return Json(new { success = false, message = "Product not found." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error deleting product. Please try again." });
+            }
         }
     }
 }

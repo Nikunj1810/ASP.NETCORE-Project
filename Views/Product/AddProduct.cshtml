@@ -92,6 +92,15 @@
                     <textarea asp-for="Description" class="form-control" rows="6" placeholder="Type description here" style="min-height:150px;"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
 
+                    <!-- Gender -->
+                    <label asp-for="Gender" class="mt-2">Gender</label>
+                    <select asp-for="Gender" class="form-select">
+                        <option value="">Select gender</option>
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+
                     <!-- Category -->
                     <label asp-for="Category" class="mt-2">Category</label>
                     <select asp-for="Category" class="form-select">
@@ -226,11 +235,19 @@
     }
     @if (TempData["Success"] != null)
     {
-        <div class="alert alert-success mt-3">@TempData["Success"]</div>
+        <script>
+            $(document).ready(function() {
+                toastr.success('@TempData["Success"]');
+            });
+        </script>
     }
     @if (TempData["Error"] != null)
     {
-        <div class="alert alert-danger mt-3">@TempData["Error"]</div>
+        <script>
+            $(document).ready(function() {
+                toastr.error('@TempData["Error"]');
+            });
+        </script>
     }
 
     @section Scripts {
@@ -301,7 +318,7 @@
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    alert("Please select a JPEG or PNG image file.");
+                    toastr.error("Please select a JPEG or PNG image file.");
                     this.value = '';
                 }
             });
@@ -333,7 +350,7 @@
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    alert("Please drop a JPEG or PNG image file.");
+                    toastr.error("Please drop a JPEG or PNG image file.");
                 }
             });
 

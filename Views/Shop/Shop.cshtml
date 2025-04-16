@@ -1,4 +1,4 @@
-﻿@model List<ASP.netcore_Project.Models.ProductModel>
+@model List<ASP.netcore_Project.Models.ProductModel>
 
 @{
     ViewData["Title"] = "Shop";
@@ -30,19 +30,51 @@
                     <p class="text-muted">₹0 - ₹<span id="priceValue">5000</span></p>
                 </div>
 
+                <!-- Gender Filter -->
+                <div class="mb-4">
+                    <h6 class="fw-semibold">Gender</h6>
+                    <div class="d-flex gap-2">
+                        <a href="@Url.Action("Shop", new { gender = "Men" })" 
+                           class="btn @(ViewBag.SelectedGender == "Men" ? "btn-dark" : "btn-outline-dark") flex-grow-1">
+                            <i class="fas fa-male me-1"></i> Men
+                        </a>
+                        <a href="@Url.Action("Shop", new { gender = "Women" })" 
+                           class="btn @(ViewBag.SelectedGender == "Women" ? "btn-dark" : "btn-outline-dark") flex-grow-1">
+                            <i class="fas fa-female me-1"></i> Women
+                        </a>
+                    </div>
+                    @if (ViewBag.SelectedGender != null)
+                    {
+                        <div class="mt-2">
+                            <a href="@Url.Action("Shop")" class="btn btn-sm btn-light">
+                                <i class="fas fa-times me-1"></i> Clear Filter
+                            </a>
+                        </div>
+                    }
+                </div>
+
                 <!-- Categories Filter -->
                 <div>
                     <h6 class="fw-semibold">Categories</h6>
                     <ul class="list-unstyled">
-                        <li><input type="checkbox" class="form-check-input me-1"> T-shirts</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Shirts</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Jeans</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Dresses</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Sweaters</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Jackets</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Shoes</li>
-                        <li><input type="checkbox" class="form-check-input me-1"> Accessories</li>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <li>
+                                <a href="@Url.Action("Shop", new { gender = ViewBag.SelectedGender, category = category })" 
+                                   class="btn btn-sm @(ViewBag.SelectedCategory == category ? "btn-primary" : "btn-outline-primary") mb-2">
+                                    @category
+                                </a>
+                            </li>
+                        }
                     </ul>
+                    @if (ViewBag.SelectedCategory != null)
+                    {
+                        <div class="mt-2">
+                            <a href="@Url.Action("Shop", new { gender = ViewBag.SelectedGender })" class="btn btn-sm btn-light">
+                                <i class="fas fa-times me-1"></i> Clear Category
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
         </aside>
@@ -66,7 +98,7 @@
                             <div class="card border-0 shadow-sm h-100 rounded-4">
                                 <div class="position-relative">
                                     <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id">
-                                        <img src="@product.ImageUrl" class="card-img-top rounded-top-4" style="height: 250px; object-fit: cover;" alt="@product.Name" />
+                                        <img src="@product.ImageUrl" class="card-img-top rounded-top-4" style="width: 100%; height: 300px; object-fit: contain;" alt="@product.Name" />
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -84,13 +116,6 @@
                                             <span class = "discount-badge">@product.DiscountPercentage% OFF</span>
                                         }
                                     </div>
-
-                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" onsubmit="return checkLogin();">
-                                        <input type="hidden" name="productId" value="@product.Id" />
-                                        <button type="submit" class="btn btn-dark w-100 rounded-pill">
-                                            <i class="fas fa-cart-plus me-1"></i> Add to Cart
-                                        </button>
-                                    </form>
                                 </div>
                             </div>
                         </div>

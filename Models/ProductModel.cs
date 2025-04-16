@@ -20,6 +20,7 @@ namespace ASP.netcore_Project.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        public string Gender { get; set; }  // "Men" or "Women"
         public string Brand { get; set; }
         public string Sku { get; set; }
 

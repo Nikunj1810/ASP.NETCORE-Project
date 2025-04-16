@@ -60,6 +60,8 @@ namespace ASP.netcore_Project.Models
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
         public string Status { get; set; } = "pending";
+
+        public DateTime LastUpdated { get; set; }
     }
 
     public class ShippingInfo

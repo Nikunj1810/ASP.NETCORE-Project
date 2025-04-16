@@ -1,67 +1,67 @@
-E:\Asp.net\wwwroot\lib\jquery\dist\jquery.slim.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
-E:\Asp.net\wwwroot\.gitignore .txt
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
-E:\Asp.net\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-E:\Asp.net\wwwroot\favicon.ico
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-E:\Asp.net\wwwroot\lib\jquery\dist\jquery.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
-E:\Asp.net\wwwroot\lib\jquery\dist\jquery.min.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
-E:\Asp.net\wwwroot\lib\jquery\dist\jquery.slim.min.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
-E:\Asp.net\wwwroot\js\site.js
-E:\Asp.net\wwwroot\css\site.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
-E:\Asp.net\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-E:\Asp.net\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-E:\Asp.net\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-E:\Asp.net\wwwroot\lib\jquery-validation\dist\additional-methods.js
-E:\Asp.net\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
-E:\Asp.net\wwwroot\lib\jquery\LICENSE.txt
-E:\Asp.net\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.js
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
-E:\Asp.net\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-E:\Asp.net\wwwroot\css\dashboard.css
-E:\Asp.net\wwwroot\lib\jquery\dist\jquery.slim.min.map
-E:\Asp.net\wwwroot\lib\jquery\dist\jquery.min.map
-E:\Asp.net\wwwroot\lib\jquery-validation\LICENSE.md
-E:\Asp.net\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+E:\asp.net core\wwwroot\lib\jquery\dist\jquery.slim.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+E:\asp.net core\wwwroot\.gitignore .txt
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+E:\asp.net core\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+E:\asp.net core\wwwroot\favicon.ico
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+E:\asp.net core\wwwroot\lib\jquery\dist\jquery.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+E:\asp.net core\wwwroot\lib\jquery\dist\jquery.min.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+E:\asp.net core\wwwroot\lib\jquery\dist\jquery.slim.min.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+E:\asp.net core\wwwroot\js\site.js
+E:\asp.net core\wwwroot\css\site.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+E:\asp.net core\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+E:\asp.net core\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+E:\asp.net core\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+E:\asp.net core\wwwroot\lib\jquery-validation\dist\additional-methods.js
+E:\asp.net core\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+E:\asp.net core\wwwroot\lib\jquery\LICENSE.txt
+E:\asp.net core\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+E:\asp.net core\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+E:\asp.net core\wwwroot\css\dashboard.css
+E:\asp.net core\wwwroot\lib\jquery\dist\jquery.slim.min.map
+E:\asp.net core\wwwroot\lib\jquery\dist\jquery.min.map
+E:\asp.net core\wwwroot\lib\jquery-validation\LICENSE.md
+E:\asp.net core\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
 wwwroot\.gitignore .txt
 wwwroot\css\dashboard.css
 wwwroot\css\site.css
@@ -143,6 +143,7 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\uploads\2b67d63e-eccb-41e0-89c8-7af1def7fd65.jpg
 wwwroot\uploads\38b680ff-a887-4c95-af45-571873dbffaf.jpg
 wwwroot\uploads\7f9f28b9-0c5f-4174-a51d-adbf83ba2b2b.jpg
 wwwroot\uploads\f9706c4a-ada7-4488-8445-e081d8b3719f.jpg
