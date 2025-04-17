@@ -74,39 +74,42 @@
         {
             foreach (var product in Model)
             {
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card border-0 shadow-sm product-card rounded-xl h-100">
-                        <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@product.Id" class="text-decoration-none">
-                            <img src="@(product.ImageUrls?.FirstOrDefault() ?? "/images/products/default.jpg")" class="product-image w-100" alt="@product.Name" />
-                        </a>
+               <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card border-0 shadow-sm product-card h-100 rounded-4 overflow-hidden">
+        <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@product.Id" class="text-decoration-none">
+            <img src="@(product.ImageUrls?.FirstOrDefault() ?? "/images/products/default.jpg")" 
+                 class="product-image w-100" 
+                 alt="@product.Name" />
+        </a>
 
-                        <div class="card-body">
-                            <h5 class="card-title fw-semibold text-dark">@product.Name</h5>
-                            <p class="text-muted mb-1">Brand: <strong>@product.Brand</strong></p>
-                            <p class="text-muted small mb-2">Category: <strong>@product.Category</strong></p>
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span class="text-success fw-bold fs-5">₹@product.Price</span>
-                                @if (product.OriginalPrice > product.Price)
-                                {
-                                    <span class="text-muted text-decoration-line-through">₹@product.OriginalPrice</span>
-                                }
-                            </div>
-                        </div>
+        <div class="card-body px-4 py-3">
+            <h5 class="card-title fw-semibold text-dark mb-1">@product.Name</h5>
+            <p class="text-muted mb-1">Brand: <strong>@product.Brand</strong></p>
+            <p class="text-muted small mb-2">Category: <strong>@product.Category</strong></p>
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="text-success fw-bold fs-5">₹@product.Price</span>
+                @if (product.OriginalPrice > product.Price)
+                {
+                    <span class="text-muted text-decoration-line-through">₹@product.OriginalPrice</span>
+                }
+            </div>
+        </div>
 
-                        <div class="card-footer bg-white border-top-0 d-flex justify-content-between px-3 pb-3">
-                            <a asp-action="EditProduct" asp-controller="Product" asp-route-id="@product.Id"
-                               class="btn btn-sm btn-outline-primary rounded-pill px-3">
-                                <i class="fas fa-edit me-1"></i>Edit
-                            </a>
-                            <button type="button" 
-                               class="btn btn-sm btn-outline-danger rounded-pill px-3 delete-product-btn"
-                               data-product-id="@product.Id"
-                               data-product-name="@product.Name">
-                                <i class="fas fa-trash me-1"></i>Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <div class="card-footer bg-white border-top-0 px-4 pb-3 pt-0 d-flex justify-content-between">
+            <a asp-action="EditProduct" asp-controller="Product" asp-route-id="@product.Id"
+               class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                <i class="fas fa-edit me-1"></i>Edit
+            </a>
+            <button type="button" 
+                    class="btn btn-sm btn-outline-danger rounded-pill px-3 delete-product-btn"
+                    data-product-id="@product.Id"
+                    data-product-name="@product.Name">
+                <i class="fas fa-trash me-1"></i>Delete
+            </button>
+        </div>
+    </div>
+</div>
+
             }
         }
         else

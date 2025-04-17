@@ -32,9 +32,9 @@ namespace ASP.netcore_Project.Controllers
                                                .Limit(4)
                                                .ToList();
             
-            // Retrieve top selling products (for now, just get any 4 products)
-            var topSelling = _productCollection.Find(_ => true)
-                                              .Limit(4)
+            // Retrieve 10 random products for top selling section
+            var topSelling = _productCollection.Aggregate()
+                                              .Sample(10)
                                               .ToList();
             
             // Pass data to view using ViewBag

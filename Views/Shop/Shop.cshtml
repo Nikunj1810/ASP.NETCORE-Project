@@ -140,6 +140,48 @@
         return true;
     }
 
+    // Load more products function
+    function loadMoreProducts() {
+        if (loading || !hasMore) return;
+        
+        loading = true;
+        currentPage++;
+        $('#loading').removeClass('d-none');
+
+        $.ajax({
+            url: '/Shop/Shop',
+            data: {
+                gender: gender,
+                category: category,
+                page: currentPage
+            },
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            success: function(data) {
+                if (data.trim()) {
+                    $('#product-grid').append(data);
+                    hasMore = $(data).length === 12; // 12 is the page size
+                } else {
+                    hasMore = false;
+                }
+            },
+            error: function() {
+                hasMore = false;
+                alert('Error loading more products');
+            },
+            complete: function() {
+                loading = false;
+                $('#loading').addClass('d-none');
+            }
+        });
+    }
+
+    // Infinite scroll event handler
+    $(window).scroll(function() {
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+            loadMoreProducts();
+        }
+    });
+
     // Infinite scroll functionality
     $(window).scroll(function() {
         if (loading || !hasMore) return;
