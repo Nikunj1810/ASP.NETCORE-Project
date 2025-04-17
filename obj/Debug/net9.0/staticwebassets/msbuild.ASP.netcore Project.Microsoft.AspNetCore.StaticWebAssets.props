@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dc9fooxxiy</Fingerprint>
-      <Integrity>81ptCzKzzvu+ddc5s7PAGnxxTONg6aTSOyQjCEO3BLI=</Integrity>
+      <Fingerprint>jfgps5wvbj</Fingerprint>
+      <Integrity>kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY+FnhiTdqO0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -1476,6 +1476,78 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\06674b0b-5bcd-4e92-835d-80a363e5b44d.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/06674b0b-5bcd-4e92-835d-80a363e5b44d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>hybakq7315</Fingerprint>
+      <Integrity>9zha2gKR61TsYfWQ1q6UpZ7uwntLPGYwOpbqYqWCRUc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\06674b0b-5bcd-4e92-835d-80a363e5b44d.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0741d582-b440-4834-85eb-c38e01d14214.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/0741d582-b440-4834-85eb-c38e01d14214.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>eiyl3rutew</Fingerprint>
+      <Integrity>9vCqLhnqqB97Dj+omERSboIyx82Y/3TyX7K8VN3U50s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0741d582-b440-4834-85eb-c38e01d14214.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0bf4f3d4-c71f-4b1e-b95b-1e413f63cb51.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/0bf4f3d4-c71f-4b1e-b95b-1e413f63cb51.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ux58aupi2h</Fingerprint>
+      <Integrity>7p1bu/INDtLo09gnZSkmw2loaMOlOCpiQYtLrpSuDL8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0bf4f3d4-c71f-4b1e-b95b-1e413f63cb51.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0fe3f0ea-5eea-449e-9454-ab09b6739027.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/0fe3f0ea-5eea-449e-9454-ab09b6739027.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>b59eh7lty1</Fingerprint>
+      <Integrity>z+IHlUh9XII4a4hWLcGgNYC6fXt18LlngY1InzU2ZeA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0fe3f0ea-5eea-449e-9454-ab09b6739027.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\11316bee-94c4-42fa-8624-91055ac274bb.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ASP.netcore Project</SourceId>
@@ -1493,6 +1565,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\11316bee-94c4-42fa-8624-91055ac274bb.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1941ad15-1ec5-4e3b-b023-fe9b2da64e17.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/1941ad15-1ec5-4e3b-b023-fe9b2da64e17.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>p8mlczcg6b</Fingerprint>
+      <Integrity>J+SNRt5r7/+OfY4NFCPPatFaZ+Jc7TmYhGSt/nx0mIo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1941ad15-1ec5-4e3b-b023-fe9b2da64e17.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\27b2e6a4-f12e-4903-a61e-3adc785f2196.jpg'))">
       <SourceType>Package</SourceType>
@@ -1530,6 +1620,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\2b67d63e-eccb-41e0-89c8-7af1def7fd65.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\34b9a97b-a478-46f9-9f77-f653b6402c36.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/34b9a97b-a478-46f9-9f77-f653b6402c36.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>fhxfk3np10</Fingerprint>
+      <Integrity>Q4dL4xVK+qcTyZGC1d/kWOzFqtsLi2NIXDexuGWaM9c=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\34b9a97b-a478-46f9-9f77-f653b6402c36.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\38b680ff-a887-4c95-af45-571873dbffaf.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ASP.netcore Project</SourceId>
@@ -1566,6 +1674,60 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\3a116dd7-9fa4-4859-a5db-25dad6cf454f.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\3ba3424a-8059-4856-b604-59a120f6037d.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/3ba3424a-8059-4856-b604-59a120f6037d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>akfwp5tmaa</Fingerprint>
+      <Integrity>ylM9VzdUQSwfq7qww4Z8c8NkMaROCRyRzz8HtXg3iTM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\3ba3424a-8059-4856-b604-59a120f6037d.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\52050254-3df5-4030-92c4-34b3c333faef.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/52050254-3df5-4030-92c4-34b3c333faef.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>g0srglt4ug</Fingerprint>
+      <Integrity>cOUGvhCkA6ixjJdCa+YpwgpJ2Qr0EPdQ0HDDwZJmWD8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\52050254-3df5-4030-92c4-34b3c333faef.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\5c49e697-8533-4b37-89c0-30fc9d2cc7a6.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/5c49e697-8533-4b37-89c0-30fc9d2cc7a6.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>h5klphe3hr</Fingerprint>
+      <Integrity>RZZvPa518VB/mpFEM73AN+8gV5iV/KQPD32ZdQFFlbY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\5c49e697-8533-4b37-89c0-30fc9d2cc7a6.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\6914a0d3-76dc-4760-a865-fead287031b2.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ASP.netcore Project</SourceId>
@@ -1583,6 +1745,60 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\6914a0d3-76dc-4760-a865-fead287031b2.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\72f93451-3c4a-4cf1-8789-13cff4544904.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/72f93451-3c4a-4cf1-8789-13cff4544904.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>73uhbed6id</Fingerprint>
+      <Integrity>k+VaNAOZ1lFbl0ULO9lazJl0sAUTGqPGR4nZjuVgLNA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\72f93451-3c4a-4cf1-8789-13cff4544904.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\77f19f2e-4b9b-474c-a43d-151fcea4d9b8.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/77f19f2e-4b9b-474c-a43d-151fcea4d9b8.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>gqed1l5pim</Fingerprint>
+      <Integrity>2DA84i3bKr1g8GNW2AHOimS75AEGk6jXjmWMyin+j7A=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\77f19f2e-4b9b-474c-a43d-151fcea4d9b8.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\7c674dd5-8ae9-43b3-a4a8-a52da59bb3e9.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/7c674dd5-8ae9-43b3-a4a8-a52da59bb3e9.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>wyhc13hloj</Fingerprint>
+      <Integrity>+MKxwkk57toZm4hHlamFiDE9Og+U47HGrO4q109TM9M=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\7c674dd5-8ae9-43b3-a4a8-a52da59bb3e9.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\7f9f28b9-0c5f-4174-a51d-adbf83ba2b2b.jpg'))">
       <SourceType>Package</SourceType>
@@ -1692,6 +1908,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\9b0e870e-2f0c-4ad8-921a-1ab773793280.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a7ce83b9-02a3-451f-9edf-4e90e0e4c711.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/a7ce83b9-02a3-451f-9edf-4e90e0e4c711.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>hbe3nunlxw</Fingerprint>
+      <Integrity>wzVaqAYCW82wiKpVMiZB8hYZ/up3p63+obH5sow3q54=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a7ce83b9-02a3-451f-9edf-4e90e0e4c711.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\bb6a0333-4bd5-4b8c-aee4-70dd2febb231.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ASP.netcore Project</SourceId>
@@ -1745,6 +1979,96 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\c7669734-bd60-4fb0-a7ab-b40e568e891f.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ca78d28d-95b5-4e68-bb9a-3f8adca1c011.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/ca78d28d-95b5-4e68-bb9a-3f8adca1c011.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>310v0pmktn</Fingerprint>
+      <Integrity>GYoeQ0irhPe7hMMKm0pf148iTOSsbwBGgq/ucgVh6IQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ca78d28d-95b5-4e68-bb9a-3f8adca1c011.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0a6ad8f-d369-4ab1-a145-7b72e7d561da.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/d0a6ad8f-d369-4ab1-a145-7b72e7d561da.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vl4tsmfhhz</Fingerprint>
+      <Integrity>k6CdZgz8SKUOo/iaZ3NCQ36jx3HK444HL/AAtV2SFRw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0a6ad8f-d369-4ab1-a145-7b72e7d561da.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d389ad55-9236-422d-8291-ca4ad9a03868.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/d389ad55-9236-422d-8291-ca4ad9a03868.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>n6f5cftdcw</Fingerprint>
+      <Integrity>4euendeivG3L4MM3Ej/wRDOMaBBE0kLcIfiTuCqKANg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d389ad55-9236-422d-8291-ca4ad9a03868.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d4bc4932-3d1c-4eb2-bc50-ebeb8a5d3ba3.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/d4bc4932-3d1c-4eb2-bc50-ebeb8a5d3ba3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>iohiqpomcv</Fingerprint>
+      <Integrity>/nfTKLMLgn7CtsDBCgWB7LrD5kVfKtMQoCeeqJ+AW1s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d4bc4932-3d1c-4eb2-bc50-ebeb8a5d3ba3.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d5e32574-f82a-4033-b3c1-bf253cc586b8.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/d5e32574-f82a-4033-b3c1-bf253cc586b8.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ppj93t4uvj</Fingerprint>
+      <Integrity>DQN7o1PUCSIwBFLAIh0Krp0i9LdRhl+zzqyu7NKhkxI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d5e32574-f82a-4033-b3c1-bf253cc586b8.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d633809d-1f98-499a-9db7-054919b3c275.jpg'))">
       <SourceType>Package</SourceType>
@@ -1800,6 +2124,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e7023f57-d42e-42df-aa5f-17ea52d042a7.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f913a306-49af-462a-ba5c-b8b114205c58.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/f913a306-49af-462a-ba5c-b8b114205c58.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>z53e2pryu9</Fingerprint>
+      <Integrity>eYJ7IbgZWPPw/dV0/SmP+GepVWbJja69eWU2NZVPoHU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f913a306-49af-462a-ba5c-b8b114205c58.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f9706c4a-ada7-4488-8445-e081d8b3719f.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ASP.netcore Project</SourceId>
@@ -1817,6 +2159,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f9706c4a-ada7-4488-8445-e081d8b3719f.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\fa818b51-523e-4325-a155-5e2bad838279.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP.netcore Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP.netcore Project</BasePath>
+      <RelativePath>uploads/fa818b51-523e-4325-a155-5e2bad838279.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>1qjzqnfeex</Fingerprint>
+      <Integrity>mdQzRcaZFbFcDm96zfIhX75GHKoZ1nXChIgE4tQ3tsM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\fa818b51-523e-4325-a155-5e2bad838279.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

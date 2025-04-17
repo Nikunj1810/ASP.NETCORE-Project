@@ -1877,7 +1877,6 @@ C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\scopedcss\bund
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\scopedcss\projectbundle\ASP.netcore Project.bundle.scp.css
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\0ogwibrdmt-zowgx389g7.gz
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\xprr9me2y6-ussq62del8.gz
-C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\f0dz5obuqw-dc9fooxxiy.gz
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\1tk86tt4ti-61n19gt1b8.gz
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\dlsk6guvl0-xtxxf3hu2r.gz
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\b4n3pkys6h-t1cqhe9u97.gz
@@ -1957,3 +1956,4 @@ C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\refint\ASP.net
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\ASP.netcore Project.pdb
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\ASP.netcore Project.genruntimeconfig.cache
 C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\ref\ASP.netcore Project.dll
+C:\Users\Shivam\OneDrive\Desktop\asp.net project\obj\Debug\net9.0\compressed\f0dz5obuqw-jfgps5wvbj.gz
