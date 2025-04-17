@@ -33,7 +33,7 @@ namespace ASP.netcore_Project.Models
         public decimal OriginalPrice { get; set; }
         public int DiscountPercentage { get; set; }
 
-        public string ImageUrl { get; set; }
+        public List<string> ImageUrls { get; set; } = new List<string>();
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsNewArrival { get; set; } = false;
     }

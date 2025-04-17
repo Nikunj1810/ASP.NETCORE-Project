@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
 namespace ASP.netcore_Project.Models
@@ -16,7 +16,7 @@ namespace ASP.netcore_Project.Models
         public string ProductId { get; set; }
 
         public string ProductName { get; set; }
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } // Stores the first image from product's ImageUrls collection
         public string Size { get; set; }
         public string SizeType { get; set; }
         public int Quantity { get; set; }

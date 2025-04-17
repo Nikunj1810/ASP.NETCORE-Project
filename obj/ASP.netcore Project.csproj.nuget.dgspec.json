@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\asp.net core\\ASP.netcore Project.csproj": {}
+    "E:\\asp.netcore\\ASP.netcore Project.csproj": {}
   },
   "projects": {
-    "E:\\asp.net core\\ASP.netcore Project.csproj": {
+    "E:\\asp.netcore\\ASP.netcore Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\asp.net core\\ASP.netcore Project.csproj",
+        "projectUniqueName": "E:\\asp.netcore\\ASP.netcore Project.csproj",
         "projectName": "ASP.netcore Project",
-        "projectPath": "E:\\asp.net core\\ASP.netcore Project.csproj",
+        "projectPath": "E:\\asp.netcore\\ASP.netcore Project.csproj",
         "packagesPath": "C:\\Users\\Garac\\.nuget\\packages\\",
-        "outputPath": "E:\\asp.net core\\obj\\",
+        "outputPath": "E:\\asp.netcore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

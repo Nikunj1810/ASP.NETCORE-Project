@@ -1,4 +1,4 @@
-﻿using ASP.netcore_Project.Models;
+using ASP.netcore_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System.Security.Claims;
@@ -57,7 +57,7 @@ namespace ASP.netcore_Project.Controllers
                         UserId = userId,
                         ProductId = productId,
                         ProductName = product.Name,
-                        ImageUrl = product.ImageUrl,
+                        ImageUrl = product.ImageUrls?.FirstOrDefault() ?? "",
                         Size = size,
                         SizeType = "Regular", // You might want to get this from the product
                         Quantity = quantity,

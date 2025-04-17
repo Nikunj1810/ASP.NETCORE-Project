@@ -16,7 +16,7 @@ namespace ASP.netcore_Project.Controllers
             _productCollection = database.GetCollection<ProductModel>("Products");
         }
 
-        public IActionResult Shop(string gender = null, string category = null)
+        public IActionResult Shop(string gender = null, string category = null, int page = 1)
         {
             var filterBuilder = Builders<ProductModel>.Filter;
             var filter = filterBuilder.Empty;
@@ -34,15 +34,27 @@ namespace ASP.netcore_Project.Controllers
                     : filterBuilder.And(filter, categoryFilter);
             }
 
-            var products = _productCollection.Find(filter).ToList();
+            const int pageSize = 12;
+            var products = _productCollection.Find(filter)
+                .Skip((page - 1) * pageSize)
+                .Limit(pageSize)
+                .ToList();
             
             // Pass selected filters to the view
             ViewBag.SelectedGender = gender;
             ViewBag.SelectedCategory = category;
+            ViewBag.CurrentPage = page;
+            ViewBag.HasMoreProducts = products.Count == pageSize;
 
             // Get all unique categories for the filter
             var allCategories = _productCollection.Distinct<string>("Category", filterBuilder.Empty).ToList();
             ViewBag.Categories = allCategories;
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_ProductGrid", products);
+            }
+
 
             return View(products);
         }

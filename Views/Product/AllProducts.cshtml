@@ -77,7 +77,7 @@
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card border-0 shadow-sm product-card rounded-xl h-100">
                         <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@product.Id" class="text-decoration-none">
-                            <img src="@product.ImageUrl" class="product-image w-100" alt="@product.Name" />
+                            <img src="@(product.ImageUrls?.FirstOrDefault() ?? "/images/products/default.jpg")" class="product-image w-100" alt="@product.Name" />
                         </a>
 
                         <div class="card-body">

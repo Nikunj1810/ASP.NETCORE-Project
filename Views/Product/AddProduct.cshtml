@@ -187,25 +187,41 @@
                         }
                     </div>
                     <button type="button" class="btn btn-secondary btn-sm mb-3" id="addSizeBtn">+ Add Size</button>
-                    <!-- Image Upload -->
-                    <label class="mt-2">Product Image</label>
+                    <!-- Multiple Image Upload -->
+                    <label class="mt-2">Product Images</label>
                     <div class="upload-box" id="dropZone">
                         <span>📤</span>
-                        <p>Drop your image here, or browse</p>
-                        <small class="text-muted">JPEG, PNG allowed</small>
+                        <p>Drop your images here, or browse</p>
+                        <small class="text-muted">JPEG, PNG allowed (Max 5 images)</small>
 
-                        <!-- File Input (optional if editing) -->
-                        <input type="file" name="imageFile" id="fileInput" class="form-control mt-2" accept="image/jpeg,image/png" @(ViewBag.IsEdit != null && (bool)ViewBag.IsEdit ? "" : "required") />
+                        <!-- Multiple File Input -->
+                        <input type="file" name="imageFiles" id="fileInput" class="form-control mt-2" accept="image/jpeg,image/png" multiple @(ViewBag.IsEdit != null && (bool)ViewBag.IsEdit ? "" : "required") />
 
-                        <!-- Hidden input to retain old image if not changed -->
-                        <input type="hidden" name="ImageUrl" value="@Model.ImageUrl" />
+                        <!-- Existing Images -->
+                        @if (Model.ImageUrls != null && Model.ImageUrls.Any())
+                        {
+                            <div class="existing-images mt-3">
+                                <h6>Current Images:</h6>
+                                <div class="row">
+                                    @foreach (var imageUrl in Model.ImageUrls)
+                                    {
+                                        <div class="col-md-4 mb-2">
+                                            <div class="position-relative">
+                                                <img src="@imageUrl" class="img-thumbnail" style="width: 100%; height: 150px; object-fit: cover;" />
+                                                <input type="hidden" name="ExistingImageUrls" value="@imageUrl" />
+                                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 remove-image">×</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
 
-                        <!-- Preview the existing image (if any) -->
-                        <div id="imagePreview" class="mt-3" style="@(string.IsNullOrEmpty(Model.ImageUrl) ? "display:none;" : "")">
-                            <img id="preview" src="@Model.ImageUrl" alt="Preview" style="max-width: 100%; max-height: 200px;" />
+                        <!-- Image Preview Container -->
+                        <div id="imagePreview" class="mt-3" style="display:none;">
+                            <div class="row" id="previewImagesContainer"></div>
                         </div>
                     </div>
-
 
                     <!-- New Arrival -->
                     <div class="form-check mt-3">
@@ -297,7 +313,7 @@
                 const form = document.getElementById("productForm");
                 form.reset();
                 document.getElementById("imagePreview").style.display = "none";
-                document.getElementById("preview").src = "#";
+                document.getElementById("previewImagesContainer").innerHTML = '';
                 document.getElementById("sizesContainer").innerHTML = `
                     <div class="input-group mb-2 size-input">
                         <input type="text" name="Sizes[0].Size" class="form-control" placeholder="Enter size" required />
@@ -309,18 +325,35 @@
             });
 
             document.getElementById("fileInput").addEventListener("change", function (e) {
-                const file = e.target.files[0];
-                if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
-                    const reader = new FileReader();
-                    reader.onload = function (event) {
-                        document.getElementById("preview").src = event.target.result;
-                        document.getElementById("imagePreview").style.display = "block";
-                    };
-                    reader.readAsDataURL(file);
-                } else {
-                    toastr.error("Please select a JPEG or PNG image file.");
+                const files = Array.from(e.target.files);
+                const previewContainer = document.getElementById("previewImagesContainer");
+                const maxFiles = 5;
+
+                if (files.length > maxFiles) {
+                    toastr.error(`You can only upload up to ${maxFiles} images.`);
                     this.value = '';
+                    return;
                 }
+
+                files.forEach(file => {
+                    if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
+                        const reader = new FileReader();
+                        reader.onload = function (event) {
+                            const previewDiv = document.createElement('div');
+                            previewDiv.className = 'col-md-4 mb-2';
+                            previewDiv.innerHTML = `
+                                <div class="position-relative">
+                                    <img src="${event.target.result}" class="img-thumbnail" style="width: 100%; height: 150px; object-fit: cover;" />
+                                    <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 remove-preview">×</button>
+                                </div>`;
+                            previewContainer.appendChild(previewDiv);
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        toastr.error(`File ${file.name} is not a valid JPEG or PNG image.`);
+                    }
+                });
+                document.getElementById("imagePreview").style.display = "block";
             });
 
             const dropZone = document.getElementById("dropZone");
@@ -340,18 +373,45 @@
             });
 
             dropZone.addEventListener("drop", function (e) {
-                const file = e.dataTransfer.files[0];
-                if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
-                    const reader = new FileReader();
-                    reader.onload = function (event) {
-                        document.getElementById("fileInput").files = e.dataTransfer.files;
-                        document.getElementById("preview").src = event.target.result;
-                        document.getElementById("imagePreview").style.display = "block";
-                    };
-                    reader.readAsDataURL(file);
-                } else {
-                    toastr.error("Please drop a JPEG or PNG image file.");
+                const files = Array.from(e.dataTransfer.files);
+                const maxFiles = 5;
+
+                if (files.length > maxFiles) {
+                    toastr.error(`You can only upload up to ${maxFiles} images.`);
+                    return;
                 }
+
+                // Create a new FileList from the dropped files
+                const dataTransfer = new DataTransfer();
+                files.forEach(file => {
+                    if (file.type === "image/jpeg" || file.type === "image/png") {
+                        dataTransfer.items.add(file);
+                    } else {
+                        toastr.error(`File ${file.name} is not a valid JPEG or PNG image.`);
+                    }
+                });
+
+                // Set the files to the input
+                document.getElementById("fileInput").files = dataTransfer.files;
+                // Trigger the change event
+                document.getElementById("fileInput").dispatchEvent(new Event('change'));
+            });
+
+            // Handle removal of preview images
+            document.getElementById("previewImagesContainer").addEventListener("click", function(e) {
+                if (e.target.classList.contains("remove-preview")) {
+                    e.target.closest(".col-md-4").remove();
+                    if (this.children.length === 0) {
+                        document.getElementById("imagePreview").style.display = "none";
+                    }
+                }
+            });
+
+            // Handle removal of existing images
+            document.querySelectorAll(".remove-image").forEach(button => {
+                button.addEventListener("click", function() {
+                    this.closest(".col-md-4").remove();
+                });
             });
 
             // Initial stock count on page load

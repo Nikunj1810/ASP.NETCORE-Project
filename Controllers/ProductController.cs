@@ -58,7 +58,7 @@ namespace ASP.netcore_Project.Controllers
             {
                 Sizes = new List<SizeModel>(),
                 SizeType = "standard",
-                ImageUrl = ""
+                ImageUrls = new List<string>()
             };
             return View(model);
         }
@@ -73,7 +73,7 @@ namespace ASP.netcore_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(ProductModel model, IFormFile imageFile)
+        public async Task<IActionResult> AddProduct(ProductModel model, List<IFormFile> imageFiles, List<string> ExistingImageUrls)
         {
             if (!ModelState.IsValid)
             {
@@ -87,26 +87,36 @@ namespace ASP.netcore_Project.Controllers
                 model.CreatedAt = DateTime.UtcNow;
             }
 
-            // Image upload
-            if (imageFile != null && imageFile.Length > 0)
+            // Initialize ImageUrls list
+            model.ImageUrls = new List<string>();
+
+            // Add existing images that weren't removed
+            if (ExistingImageUrls != null)
+            {
+                model.ImageUrls.AddRange(ExistingImageUrls);
+            }
+
+            // Handle new image uploads
+            if (imageFiles != null && imageFiles.Count > 0)
             {
                 string uploads = Path.Combine(_environment.WebRootPath, "uploads");
                 Directory.CreateDirectory(uploads);
 
-                string fileName = Guid.NewGuid() + Path.GetExtension(imageFile.FileName);
-                string filePath = Path.Combine(uploads, fileName);
-
-                using (var fs = new FileStream(filePath, FileMode.Create))
+                foreach (var imageFile in imageFiles)
                 {
-                    await imageFile.CopyToAsync(fs);
-                }
+                    if (imageFile.Length > 0)
+                    {
+                        string fileName = Guid.NewGuid() + Path.GetExtension(imageFile.FileName);
+                        string filePath = Path.Combine(uploads, fileName);
 
-                model.ImageUrl = "/uploads/" + fileName;
-            }
-            else
-            {
-                // Retain existing image if no new one is uploaded
-                model.ImageUrl = model.ImageUrl ?? ""; // fallback in case it's null
+                        using (var fs = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(fs);
+                        }
+
+                        model.ImageUrls.Add("/uploads/" + fileName);
+                    }
+                }
             }
 
             // Calculate stock quantity
@@ -124,15 +134,10 @@ namespace ASP.netcore_Project.Controllers
             }
             else
             {
-                // If no new image uploaded, use existing product's image
-                if (imageFile == null || imageFile.Length == 0)
+                // If no new images uploaded and no existing images specified, keep the existing product's images
+                if ((imageFiles == null || !imageFiles.Any()) && (ExistingImageUrls == null || !ExistingImageUrls.Any()))
                 {
-                    model.ImageUrl = existingProduct.ImageUrl;
-                }
-                // Ensure we have a valid ImageUrl even if the hidden field didn't pass the value correctly
-                else if (string.IsNullOrEmpty(model.ImageUrl))
-                {
-                    model.ImageUrl = existingProduct.ImageUrl;
+                    model.ImageUrls = existingProduct.ImageUrls;
                 }
 
                 var update = Builders<ProductModel>.Update
@@ -149,7 +154,7 @@ namespace ASP.netcore_Project.Controllers
                     .Set(p => p.OriginalPrice, model.OriginalPrice)
                     .Set(p => p.DiscountPercentage, model.DiscountPercentage)
                     .Set(p => p.IsNewArrival, model.IsNewArrival)
-                    .Set(p => p.ImageUrl, model.ImageUrl);
+                    .Set(p => p.ImageUrls, model.ImageUrls);
 
                 await _productCollection.UpdateOneAsync(p => p.Id == model.Id, update);
                 TempData["Success"] = "Product updated successfully!";

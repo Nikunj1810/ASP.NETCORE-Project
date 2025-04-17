@@ -82,9 +82,38 @@
 
 <div class="container py-5">
     <div class="row g-5">
-        <!-- Left: Image -->
+        <!-- Left: Image Carousel -->
         <div class="col-md-6 text-center">
-            <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow" style="max-height: 500px; object-fit: contain;" />
+            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @if (Model.ImageUrls != null && Model.ImageUrls.Any())
+                    {
+                        for (int i = 0; i < Model.ImageUrls.Count; i++)
+                        {
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <img src="@Model.ImageUrls[i]" alt="@Model.Name - Image @(i + 1)" class="img-fluid rounded shadow" style="max-height: 500px; object-fit: contain;" />
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="carousel-item active">
+                            <img src="/images/products/default.jpg" alt="@Model.Name" class="img-fluid rounded shadow" style="max-height: 500px; object-fit: contain;" />
+                        </div>
+                    }
+                </div>
+                @if (Model.ImageUrls != null && Model.ImageUrls.Count > 1)
+                {
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                }
+            </div>
         </div>
 
         <!-- Right: Details -->

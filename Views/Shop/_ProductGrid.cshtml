@@ -1,0 +1,32 @@
+@model List<ASP.netcore_Project.Models.ProductModel>
+
+@foreach (var product in Model)
+{
+    <div class="col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4">
+            <div class="position-relative">
+                <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id">
+                    <img src="@(product.ImageUrls?.FirstOrDefault() ?? "/images/products/default.jpg")" 
+                         class="card-img-top" alt="@product.Name" 
+                         style="height: 300px; object-fit: cover; border-radius: 1rem 1rem 0 0;">
+                </a>
+            </div>
+            <div class="card-body">
+                <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id" class="text-decoration-none">
+                    <h5 class="card-title fw-semibold text-dark">@product.Name</h5>
+                </a>
+                <p class="text-muted small mb-1">Brand: <strong>@product.Brand</strong></p>
+                <p class="text-muted small mb-2">Category: <strong>@product.Category</strong></p>
+
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="fw-bold fs-5 text-dark">₹@product.Price</span>
+                    @if (product.OriginalPrice > product.Price)
+                    {
+                        <span class="text-muted text-decoration-line-through small">₹@product.OriginalPrice</span>
+                        <span class="discount-badge">@product.DiscountPercentage% OFF</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
