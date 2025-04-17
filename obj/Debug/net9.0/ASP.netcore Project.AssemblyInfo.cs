@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP.netcore Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7207f2f21182fbdc8842e2efe89654a24e2670c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8271588a2ad91defa730d7566628e295b3ba8a02")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP.netcore Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP.netcore Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

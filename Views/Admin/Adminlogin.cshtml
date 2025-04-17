@@ -1,0 +1,67 @@
+@model ASP.netcore_Project.Models.AdminModel
+@{
+    ViewData["Title"] = "Admin Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="login-container">
+    <div class="store-title">QuickCart</div>
+    <div class="login-title">Admin Login</div>
+
+    <!-- ✅ Show error message if login fails -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary()
+        </div>
+    }
+
+    @if (TempData["LogoutSuccess"] != null)
+    {
+        <div class="alert alert-success">@TempData["LogoutSuccess"]</div>
+    }
+
+    <!-- ✅ Admin Login Form -->
+    <form id="adminLoginForm" asp-controller="Admin" asp-action="AdminLogin" method="post" onsubmit="return showFullScreenLoader();">
+        <div class="mb-4">
+            <input asp-for="UserName" class="form-control" placeholder="Username" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="mb-4">
+            <input asp-for="Password" class="form-control" placeholder="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 login-btn">Login</button>
+    </form>
+</div>
+
+<!-- ✅ Full-Screen Loading Overlay -->
+<div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<!-- ✅ JavaScript Loader Logic -->
+@section Scripts {
+    <script>
+        function showFullScreenLoader() {
+            document.getElementById("loadingOverlay").style.display = "flex"; // Show loader
+            return true; // Allow form to submit normally
+        }
+
+        // Optional: Auto-show toast if using toast style
+        document.addEventListener("DOMContentLoaded", function () {
+            const toastEl = document.getElementById("loginToast");
+            if (toastEl && toastEl.innerText.trim() !== "") {
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        });
+    </script>
+
+    <!-- Required for validation -->
+    <partial name="_ValidationScriptsPartial" />
+}

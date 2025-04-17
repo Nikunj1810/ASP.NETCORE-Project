@@ -1,0 +1,95 @@
+﻿@model ASP.netcore_Project.Models.CategoryModel
+
+@{
+    ViewData["Title"] = "CategoryManager";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<!-- Add Bootstrap Icons CDN if not already added -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<style>
+    /* Your existing styles remain untouched */
+</style>
+
+<div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#" class="text-decoration-none text-secondary">Home</a> &gt;
+        <a href="#" class="text-decoration-none text-secondary">All Products</a> &gt;
+        <span class="fw-bold">Add New Product</span>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="fw-bold">Add Product</h1>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" asp-controller="Product" asp-action="AddProduct">Product Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Category" asp-action="CategoryManager">Manage Categories</a>
+        </li>
+    </ul>
+
+    <!-- TempData Message -->
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-info mt-3" role="alert">
+            @TempData["msg"]
+        </div>
+    }
+
+    <!-- Category Management Card -->
+    <div class="card shadow mt-3">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="mb-0">Category Management</h3>
+                </div>
+                <div class="col-auto">
+                    <form asp-controller="Category" asp-action="CategoryManager" method="post">
+                        <div class="d-flex">
+                            <input type="text" asp-for="Category" class="form-control" placeholder="New category" style="width: 200px; margin-right: 10px;">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus-lg"></i> Add
+                            </button>
+                        </div>
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <h5 class="mb-4">All Categories</h5>
+            <div class="list-group">
+                <!-- Category Items -->
+                @foreach (var category in Model.Categories)
+                {
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        @category
+                        <div>
+                            <form asp-controller="Category" asp-action="DeleteCategory" method="post" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                <input type="hidden" name="categoryName" value="@category" />
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                @if (!Model.Categories.Any())
+                {
+                    <div class="list-group-item text-center text-muted">
+                        No categories found
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

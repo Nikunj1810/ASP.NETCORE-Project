@@ -1,0 +1,254 @@
+@model ASP.netcore_Project.Models.ProductModel
+
+@{
+    ViewData["Title"] = Model.Name;
+    var isLoggedIn = Context.Session.GetString("UserId") != null;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .price-now {
+        font-size: 2rem;
+        color: #28a745;
+        font-weight: 700;
+    }
+
+    .price-old {
+        text-decoration: line-through;
+        color: #6c757d;
+        font-size: 1.2rem;
+    }
+
+    .discount-badge {
+        background-color: #dc3545;
+        color: white;
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 5px;
+    }
+
+    .size-button {
+        padding: 10px 20px;
+        border: 1px solid #000;
+        border-radius: 50px;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .size-button:hover,
+    .size-button.active {
+        background-color: #000;
+        color: white;
+    }
+
+    .add-to-cart-btn {
+        background-color: #000;
+        color: white;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: #333;
+    }
+
+    .quantity-box {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        overflow: hidden;
+        width: fit-content;
+    }
+
+    .quantity-box input {
+        border: none;
+        width: 50px;
+        text-align: center;
+    }
+
+    .quantity-box button {
+        background: none;
+        border: none;
+        padding: 8px 12px;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Left: Image Carousel -->
+        <div class="col-md-6 text-center">
+            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @if (Model.ImageUrls != null && Model.ImageUrls.Any())
+                    {
+                        for (int i = 0; i < Model.ImageUrls.Count; i++)
+                        {
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <img src="@Model.ImageUrls[i]" alt="@Model.Name - Image @(i + 1)" class="d-block w-100 rounded shadow" style="max-height: 500px; object-fit: contain;" />
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="carousel-item active">
+                            <img src="/images/products/default.jpg" alt="@Model.Name" class="d-block w-100 rounded shadow" style="max-height: 500px; object-fit: contain;" />
+                        </div>
+                    }
+                </div>
+                @if (Model.ImageUrls != null && Model.ImageUrls.Count > 1)
+                {
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
+                    <!-- Thumbnail Navigation -->
+                    <div class="d-flex justify-content-center mt-3 gap-2">
+                        @for (int i = 0; i < Model.ImageUrls.Count; i++)
+                        {
+                            <img src="@Model.ImageUrls[i]" alt="Thumbnail @(i + 1)" 
+                                 class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;"
+                                 onclick="$('#productCarousel').carousel(@i)" />
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Right: Details -->
+        <div class="col-md-6">
+            <h1 class="fw-bold">@Model.Name</h1>
+
+            <div class="d-flex align-items-center gap-3 mt-2">
+                <span class="price-now">₹@Model.Price</span>
+                @if (Model.OriginalPrice > Model.Price)
+                {
+                    <span class="price-old">₹@Model.OriginalPrice</span>
+                    <span class="discount-badge">Save @Model.DiscountPercentage%</span>
+                }
+            </div>
+
+            <p class="mt-3 mb-1"><strong>Brand:</strong> @Model.Brand</p>
+            <p><strong>Category:</strong> @Model.Category</p>
+            <p class="text-muted">@Model.Description</p>
+
+            <form asp-controller="Cart" asp-action="AddToCart" method="post" id="cartForm">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="ProductId" value="@Model.Id" />
+                <input type="hidden" name="Size" id="selectedSizeInput" />
+
+                @if (Model.Sizes != null && Model.Sizes.Any())
+                {
+                    <div class="mt-4">
+                        <h6 class="fw-semibold mb-2">Choose Size:</h6>
+                        <div class="d-flex flex-wrap gap-2" id="sizeOptions">
+                            @foreach (var size in Model.Sizes)
+                            {
+                                <button type="button" class="size-button" data-size="@size.Size" @(size.Quantity == 0 ? "disabled" : "") title="Available: @size.Quantity">
+                                    @size.Size
+                                </button>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <!-- Quantity with buttons -->
+                <div class="mt-4">
+                    <label class="form-label fw-semibold me-3">Quantity:</label>
+                    <div class="quantity-box">
+                        <button type="button" onclick="adjustQuantity(-1)">−</button>
+                        <input type="number" name="Quantity" id="quantityInput" value="1" min="1" readonly />
+                        <button type="button" onclick="adjustQuantity(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="add-to-cart-btn w-100">Add to Cart</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow" style="border-radius: 0; padding: 30px;">
+            <div class="modal-header border-0 p-0 mb-3">
+                <h4 class="modal-title fw-bold" id="loginModalLabel">Login Required</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-0">
+                <p class="text-muted mb-4">Please login or create an account to add items to your cart and start shopping!</p>
+                <a href="/Account/Login" class="btn btn-outline-dark w-100 py-2 mb-3">Login to Your Account</a>
+                <div class="text-muted my-2">OR</div>
+                <a href="/Account/Register" class="btn btn-dark w-100 py-2">Create New Account</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+    <div id="liveToast" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toastMessage"></div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const sizeButtons = document.querySelectorAll('.size-button');
+    const selectedSizeInput = document.getElementById('selectedSizeInput');
+    const isLoggedIn = @Html.Raw(Json.Serialize(isLoggedIn));
+
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSizeInput.value = btn.getAttribute('data-size');
+        });
+    });
+
+    document.getElementById('cartForm').addEventListener('submit', function (e) {
+        if (!isLoggedIn) {
+            e.preventDefault();
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+            return;
+        }
+
+        if (!selectedSizeInput.value) {
+            e.preventDefault();
+            showToast("Please select a size before adding to cart.");
+        }
+    });
+
+    function showToast(message) {
+        document.getElementById("toastMessage").innerText = message;
+        const toast = new bootstrap.Toast(document.getElementById("liveToast"));
+        toast.show();
+    }
+
+    function adjustQuantity(change) {
+        const input = document.getElementById('quantityInput');
+        let value = parseInt(input.value);
+        value = isNaN(value) ? 1 : value + change;
+        input.value = value < 1 ? 1 : value;
+    }
+</script>

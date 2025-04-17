@@ -1,0 +1,138 @@
+@model IEnumerable<ASP.netcore_Project.Models.CartModel>
+
+<div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/Cart">Cart</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+    </nav>
+
+    <h2><i class="bi bi-bag-check"></i> <strong>Complete Your Order</strong></h2>
+
+    <form asp-action="PlaceOrder" method="post">
+        <div class="row mt-4">
+            <!-- Left Column -->
+            <div class="col-lg-8">
+                <!-- Shipping Information -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white border-bottom">
+                        <h4 class="mb-0"><i class="bi bi-truck"></i> Shipping Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" name="FullName" class="form-control" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="Email" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="Phone" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" name="Address" class="form-control" required />
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">City</label>
+                                <input type="text" name="City" class="form-control" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">State</label>
+                                <input type="text" name="State" class="form-control" required />
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">ZIP Code</label>
+                                <input type="text" name="ZipCode" class="form-control" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white border-bottom">
+                        <h4 class="mb-0"><i class="bi bi-credit-card"></i> Payment Method</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PaymentMethod" id="cod" value="Cash on Delivery" checked />
+                            <label class="form-check-label" for="cod">Cash on Delivery</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PaymentMethod" id="card" value="Card" />
+                            <label class="form-check-label" for="card">Credit/Debit Card</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PaymentMethod" id="upi" value="UPI" />
+                            <label class="form-check-label" for="upi">UPI</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Place Order Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark btn-lg w-100">Place Order</button>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+          <!-- Right Column: Order Summary -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border">
+                <div class="card-body">
+                    <h4 class="fw-semibold mb-3">Order Summary</h4>
+
+                    @{
+                        var subtotal = Model.Sum(item => item.Quantity * item.Price);
+                        var deliveryFee = subtotal > 500 ? 0 : 150;
+                        var total = subtotal + deliveryFee;
+                    }
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Subtotal</span>
+                            <span>₹@subtotal.ToString("N2")</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Delivery Fee</span>
+                            <span>₹@deliveryFee.ToString("N2")</span>
+                        </div>
+                        <hr />
+                        <div class="d-flex justify-content-between fw-bold fs-5">
+                            <span>Total</span>
+                            <span>₹@total.ToString("N2")</span>
+                        </div>
+                    </div>
+
+                    <!-- Order Details Section -->
+                    <div class="bg-light p-3 rounded">
+                        <h6 class="text-center mb-3">Order Details</h6>
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="d-flex mb-3 align-items-center">
+                                <img src="@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail me-3" style="width: 60px; height: 60px;">
+                                <div>
+                                    <p class="fw-medium mb-1">@item.ProductName</p>
+                                    <small>Size: L</small><br />
+                                    <small>Qty: @item.Quantity</small><br />
+                                    <strong class="text-dark">₹@item.Price.ToString("N2")</strong>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </form>
+</div>

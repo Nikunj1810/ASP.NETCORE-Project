@@ -1,0 +1,33 @@
+@model List<ASP.netcore_Project.Models.ProductModel>
+
+<div class="row gx-4 gy-4">
+    @foreach (var product in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id" class="text-decoration-none group d-block">
+                <div class="card border-0 shadow-sm h-100 rounded-xl overflow-hidden transition-all group-hover:shadow-lg">
+                    
+                    <!-- Image Section -->
+                    <div class="position-relative w-100 overflow-hidden" style="aspect-ratio: 3/4;">
+                        <img src="@(product.ImageUrls?.FirstOrDefault() ?? "/images/products/default.jpg")"
+                             alt="@product.Name"
+                             class="w-100 h-100 object-fit-cover transition-transform"
+                             style="transition: transform 0.3s; border-top-left-radius: 1rem; border-top-right-radius: 1rem;" />
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="p-3">
+                        <h5 class="text-dark fw-semibold text-truncate mb-1">@product.Name</h5>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fw-bold text-dark fs-5">₹@product.Price</span>
+                            @if (product.OriginalPrice > product.Price)
+                            {
+                                <span class="text-muted text-decoration-line-through small">₹@product.OriginalPrice</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
