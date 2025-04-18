@@ -40,13 +40,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY\u002BFnhiTdqO0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"17770"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY\u002BFnhiTdqO0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 18:18:15 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"17770"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY\u002BFnhiTdqO0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 18:23:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ASP.netcore Project/css/site.jfgps5wvbj.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jfgps5wvbj"},{"Name":"integrity","Value":"sha256-kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY\u002BFnhiTdqO0="},{"Name":"label","Value":"_content/ASP.netcore Project/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"17770"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY\u002BFnhiTdqO0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 18:18:15 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"17770"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kVAow6QOWceyiQ0/vuKcUlSW4Cd62eSbY\u002BFnhiTdqO0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 18:23:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ASP.netcore Project/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
